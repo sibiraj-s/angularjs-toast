@@ -1,6 +1,6 @@
 {
   "name": "angularjs-toast",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Simple toast notification service for AngularJS pages",
   "scripts": {
     "precommit": "yarn test",
@@ -46,10 +46,7 @@
   "dependencies": {
     "angular": "^1.6.4",
     "angular-animate": "^1.6.4",
-    "angular-sanitize": "^1.6.4",
-    "bootstrap": "^3.3.7",
-    "font-awesome": "^4.7.0",
-    "grunt": "^1.0.1"
+    "angular-sanitize": "^1.6.4"
   },
   "config": {
     "commitizen": {

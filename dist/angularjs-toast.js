@@ -78,7 +78,7 @@
            */
           var templateElement;
           templateElement = $compile(response.data)(scope);
-          return angular.element(args.container).append(templateElement);
+          angular.element(args.container).append(templateElement);
         });
       }
 
@@ -97,9 +97,9 @@
        */
       pushToArray = function() {
         if (args.insertFromTop) {
-          return scope.$toastMessages.unshift(json);
+          scope.$toastMessages.unshift(json);
         } else {
-          return scope.$toastMessages.push(json);
+          scope.$toastMessages.push(json);
         }
       };
 
@@ -123,9 +123,9 @@
        */
       $timeout(function() {
         if (args.removeFromTop) {
-          return scope.$toastMessages.shift();
+          scope.$toastMessages.shift();
         } else {
-          return scope.$toastMessages.pop();
+          scope.$toastMessages.pop();
         }
       }, args.duration);
 
@@ -133,7 +133,7 @@
        * close selected element
        * remove ->$index element from ->scope.toastMessages
        */
-      return scope.$close = function(index) {
+      scope.$close = function(index) {
         scope.$toastMessages.splice(index, 1);
       };
     };

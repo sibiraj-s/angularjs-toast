@@ -85,6 +85,7 @@ angular.module 'angularjsToast', ['ngSanitize', 'ngAnimate']
             ###
             templateElement = $compile(response.data)(scope)
             angular.element(args.container).append templateElement
+            return
 
       ###
       # append inputs to json variable
@@ -100,6 +101,7 @@ angular.module 'angularjsToast', ['ngSanitize', 'ngAnimate']
       ###
       pushToArray = ->
         if args.insertFromTop then scope.$toastMessages.unshift(json) else scope.$toastMessages.push(json)
+        return
 
       ###
       # remove last/ first element from ->scope.$toastMessages when the maxlength is reached
@@ -116,6 +118,7 @@ angular.module 'angularjsToast', ['ngSanitize', 'ngAnimate']
       ###
       $timeout ->
         if args.removeFromTop then scope.$toastMessages.shift() else scope.$toastMessages.pop()
+        return
       , args.duration
 
       ###
@@ -125,3 +128,4 @@ angular.module 'angularjsToast', ['ngSanitize', 'ngAnimate']
       scope.$close = (index) ->
         scope.$toastMessages.splice(index, 1)
         return
+      return

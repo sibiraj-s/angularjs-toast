@@ -3,11 +3,11 @@
   angular.module('angularjsToast', ['ngSanitize', 'ngAnimate']).factory('toast', ['$rootScope', '$http', '$templateCache', '$compile', '$timeout', function($rootScope, $http, $templateCache, $compile, $timeout) {
 
     /*
-     * templates
+     * template
      */
     var container, dismissible, duration, emptyMessage, html, maxToast, position, scope, templateBase, toast, toastClass;
     templateBase = 'angularjs-toast.html';
-    html = '<div class="angularjs-toast">' + '  <ul class="toast-container" ng-class="[$position, $masterClass]">' + '    <li class="animate-repeat" ng-repeat="data in $toastMessages track by data.id">' + '      <div class="alert alert-dismissible" ng-class="::$toastClass">{{data.message}}' + '        <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close" ng-click="$close($index)" ng-if="$dismissible">×</a> </div>' + '  </ul>' + '</div>';
+    html = '<div class="angularjs-toast">' + '  <ul class="toast-container" ng-class="[$position, $masterClass]">' + '    <li class="animate-repeat" ng-repeat="data in $toastMessages track by data.id">' + '      <div class="alert alert-dismissible" ng-class="::$toastClass">{{data.message}}' + '        <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close" ng-click="$close($index)" ng-if="$dismissible">×</a>' + '      </div>' + '    </li>' + '  </ul>' + '</div>';
 
     /*
      * put html into template cache

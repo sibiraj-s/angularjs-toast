@@ -8,7 +8,7 @@ angular.module 'angularjsToast', ['ngSanitize', 'ngAnimate']
     ###
     templateBase = 'angularjs-toast.html'
 
-    html = '<div class="angularjs-toast">'+
+    html = '<div class="angularjs-toast" ng-class="$toastPlace ? \'position-fixed\' : \'position-relative\'">'+
     '  <ul class="toast-container" ng-class="[$position, $masterClass]">'+
     '    <li class="animate-repeat" ng-repeat="data in $toastMessages track by data.id">'+
     '      <div class="alert alert-dismissible" ng-class="::$toastClass">{{data.message}}'+
@@ -27,7 +27,7 @@ angular.module 'angularjsToast', ['ngSanitize', 'ngAnimate']
     # default params
     ###
     container = document.querySelector('body')
-    duration = 3000
+    duration = 5000
     dismissible = true
     emptyMessage = "Hi there!"
     maxToast = 6
@@ -58,6 +58,7 @@ angular.module 'angularjsToast', ['ngSanitize', 'ngAnimate']
       # values that bind to HTML
       ###
       scope.$position = if args.position then args.position else position
+      scope.$toastPlace = if args.container is container then true else false
       scope.$masterClass = if args.masterClass then args.masterClass else ''
       scope.$toastClass = if args.className then args.className else toastClass
       scope.$dismissible = if args.dismissible then args.dismissible else dismissible

@@ -7,7 +7,7 @@
      */
     var container, dismissible, duration, emptyMessage, html, maxToast, position, scope, templateBase, toast, toastClass;
     templateBase = 'angularjs-toast.html';
-    html = '<div class="angularjs-toast">' + '  <ul class="toast-container" ng-class="[$position, $masterClass]">' + '    <li class="animate-repeat" ng-repeat="data in $toastMessages track by data.id">' + '      <div class="alert alert-dismissible" ng-class="::$toastClass">{{data.message}}' + '        <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close" ng-click="$close($index)" ng-if="$dismissible">×</a>' + '      </div>' + '    </li>' + '  </ul>' + '</div>';
+    html = '<div class="angularjs-toast" ng-class="$toastPlace ? \'position-fixed\' : \'position-relative\'">' + '  <ul class="toast-container" ng-class="[$position, $masterClass]">' + '    <li class="animate-repeat" ng-repeat="data in $toastMessages track by data.id">' + '      <div class="alert alert-dismissible" ng-class="::$toastClass">{{data.message}}' + '        <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close" ng-click="$close($index)" ng-if="$dismissible">×</a>' + '      </div>' + '    </li>' + '  </ul>' + '</div>';
 
     /*
      * put html into template cache
@@ -18,7 +18,7 @@
      * default params
      */
     container = document.querySelector('body');
-    duration = 3000;
+    duration = 5000;
     dismissible = true;
     emptyMessage = "Hi there!";
     maxToast = 6;
@@ -50,6 +50,7 @@
        * values that bind to HTML
        */
       scope.$position = args.position ? args.position : position;
+      scope.$toastPlace = args.container === container ? true : false;
       scope.$masterClass = args.masterClass ? args.masterClass : '';
       scope.$toastClass = args.className ? args.className : toastClass;
       scope.$dismissible = args.dismissible ? args.dismissible : dismissible;

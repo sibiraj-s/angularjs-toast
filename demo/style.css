@@ -13,6 +13,9 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-size: 14px;
 }
+body p {
+  font-size: 13px;
+}
 body .hljs {
   border-radius: 5px;
 }

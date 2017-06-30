@@ -16,7 +16,7 @@ app.controller('mainController', ['$scope', 'toast', function($scope, toast) {
     toast({
       masterClass: 'masterClass',
       className: cls,
-      duration: 4000,
+      duration: 5000,
       message: random(),
       position: 'left',
       container: '#appendAlert',

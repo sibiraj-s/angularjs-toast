@@ -110,9 +110,14 @@
 
 .angularjs-toast {
   z-index: 10000;
-  position: relative;
   width: 100%;
   top: 0;
+}
+.angularjs-toast.position-fixed {
+  position: fixed;
+}
+.angularjs-toast.position-relative {
+  position: relative;
 }
 .angularjs-toast ul.toast-container {
   padding: 0;

@@ -72,7 +72,7 @@ all options are type sensitive
 
 ## Pull Requests
 
-Send all Pull Requests only to `.coffeescript` and `.scss` files only. JS and CSS files are genereted by grunt
+Send Pull Requests only to `.coffeescript` and `.scss` files only. JS and CSS files are genereted by grunt
 
 * **grunt webserver** - sets up a local server with livereload
 

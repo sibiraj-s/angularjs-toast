@@ -1,12 +1,16 @@
 # angularjs-toast [![Build Status](https://travis-ci.org/Sibiraj-S/angularjs-toast.svg?branch=master)](https://travis-ci.org/Sibiraj-S/angularjs-toast)
 
-A Simple notification service for AngularJS pages
+angularjs-toast is a simple service for creating toast notification for AngularJS pages
 
 ## Getting Started
 
 ### Installation
 
 You can directly clone/download [here][angularjs-toast]
+
+```bash
+git clone git@github.com:Sibiraj-S/angularjs-toast.git
+```
 
 or
 
@@ -63,7 +67,7 @@ all options are type sensitive
 | duration      | number                | 5000          | timeout for each toast messages to disappear |
 | position      | string                | right         | position of the element can be 'left', 'center' and 'right' |
 | container     | string                | body          | appends alert to the specific class or id or element. inputs should be like '.class' or '#id' |
-| masterClass   | string                | ""            | adds class to the container for more flexibility in styling |
+| masterClass   | string                | "             | adds class to the container for more flexibility in styling |
 | message       | html-string or string | Hi there!     | can be HTML or plain string              |
 | dismissible   | boolean               | true          | show / hide the close icon. if set to false the toast will hide on timeout |
 | maxToast      | number                | 7             | maximum number of toast messages to show. if max reached the element inserted first will be removed |

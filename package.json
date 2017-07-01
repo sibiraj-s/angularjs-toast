@@ -40,7 +40,7 @@
     "grunt-contrib-uglify": "^3.0.1",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-ng-annotate": "^3.0.0",
-    "husky": "^0.14.0",
+    "husky": "^0.14.2",
     "load-grunt-tasks": "^3.5.2"
   },
   "dependencies": {

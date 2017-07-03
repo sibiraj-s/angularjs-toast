@@ -2,6 +2,8 @@
 
 angularjs-toast is a simple service for creating toast notification for AngularJS pages
 
+live demo [here][demo]
+
 ## Getting Started
 
 ### Installation
@@ -92,4 +94,6 @@ Send Pull Requests only to `.coffeescript` and `.scss` files only. JS and CSS fi
 [npm]: https://www.npmjs.com/
 [yarn]: https://yarnpkg.com/lang/en/
 [bower]: https://bower.io/
-[angularjs-toast]: https://github.com/Sibiraj-S
+[github]: https://sibiraj-s.github.io/
+[angularjs-toast]: https://github.com/Sibiraj-S/angularjs-toast
+[demo]: https://sibiraj-s.github.io/angularjs-toast/

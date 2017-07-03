@@ -75,9 +75,8 @@ module.exports = (grunt) ->
       demo:
         files:[
           expand :true
-          src: ['dist/angularjs-toast.min.js', 'dist/angularjs-toast.min.css']
+          src: ['dist/**']
           dest: 'demo/'
-          flatten: true
           filter: 'isFile'
         ]
 

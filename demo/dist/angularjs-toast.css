@@ -1,0 +1,188 @@
+.toast-alert, .angularjs-toast {
+  /*
+   * bootstrap alert class
+   */
+}
+.toast-alert .alert, .angularjs-toast .alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+.toast-alert .alert h4, .angularjs-toast .alert h4 {
+  margin-top: 0;
+  color: inherit;
+}
+.toast-alert .alert .alert-link, .angularjs-toast .alert .alert-link {
+  font-weight: bold;
+}
+.toast-alert .alert > p, .angularjs-toast .alert > p,
+.toast-alert .alert > ul,
+.angularjs-toast .alert > ul {
+  margin-bottom: 0;
+}
+.toast-alert .alert > p + p, .angularjs-toast .alert > p + p {
+  margin-top: 5px;
+}
+.toast-alert .alert-dismissable, .angularjs-toast .alert-dismissable,
+.toast-alert .alert-dismissible,
+.angularjs-toast .alert-dismissible {
+  padding-right: 35px;
+}
+.toast-alert .alert-dismissable .close, .angularjs-toast .alert-dismissable .close,
+.toast-alert .alert-dismissible .close,
+.angularjs-toast .alert-dismissible .close {
+  position: relative;
+  top: -2px;
+  right: -21px;
+  color: inherit;
+}
+.toast-alert .alert-success, .angularjs-toast .alert-success {
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+}
+.toast-alert .alert-success hr, .angularjs-toast .alert-success hr {
+  border-top-color: #c9e2b3;
+}
+.toast-alert .alert-success .alert-link, .angularjs-toast .alert-success .alert-link {
+  color: #2b542c;
+}
+.toast-alert .alert-info, .angularjs-toast .alert-info {
+  color: #31708f;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+}
+.toast-alert .alert-info hr, .angularjs-toast .alert-info hr {
+  border-top-color: #a6e1ec;
+}
+.toast-alert .alert-info .alert-link, .angularjs-toast .alert-info .alert-link {
+  color: #245269;
+}
+.toast-alert .alert-warning, .angularjs-toast .alert-warning {
+  color: #8a6d3b;
+  background-color: #fcf8e3;
+  border-color: #faebcc;
+}
+.toast-alert .alert-warning hr, .angularjs-toast .alert-warning hr {
+  border-top-color: #f7e1b5;
+}
+.toast-alert .alert-warning .alert-link, .angularjs-toast .alert-warning .alert-link {
+  color: #66512c;
+}
+.toast-alert .alert-danger, .angularjs-toast .alert-danger {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
+.toast-alert .alert-danger hr, .angularjs-toast .alert-danger hr {
+  border-top-color: #e4b9c0;
+}
+.toast-alert .alert-danger .alert-link, .angularjs-toast .alert-danger .alert-link {
+  color: #843534;
+}
+.toast-alert .close, .angularjs-toast .close {
+  float: right;
+  font-size: 21px;
+  font-weight: bold;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  filter: alpha(opacity=20);
+  opacity: 0.2;
+  text-decoration: none;
+}
+.toast-alert .close:focus, .angularjs-toast .close:focus, .toast-alert .close:hover, .angularjs-toast .close:hover {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+  filter: alpha(opacity=50);
+  opacity: 0.5;
+}
+.toast-alert .alert-dismissable .close, .angularjs-toast .alert-dismissable .close,
+.toast-alert .alert-dismissible .close,
+.angularjs-toast .alert-dismissible .close {
+  position: relative;
+  top: -2px;
+  right: -21px;
+  color: inherit;
+}
+
+.angularjs-toast {
+  z-index: 10000;
+  width: 100%;
+  top: 0;
+}
+.angularjs-toast.position-fixed {
+  position: fixed;
+}
+.angularjs-toast.position-relative {
+  position: relative;
+}
+.angularjs-toast ul.toast-container {
+  padding: 0;
+  list-style: none;
+  position: absolute;
+  top: 20px;
+}
+.angularjs-toast ul.toast-container li {
+  transition: 1s ease;
+  /*
+   * animate while element enters or leaves
+   */
+}
+.angularjs-toast ul.toast-container li .alert {
+  display: inline-block;
+}
+.angularjs-toast ul.toast-container li.ng-enter {
+  opacity: 0;
+  transition: 1s ease-in;
+}
+.angularjs-toast ul.toast-container li.ng-enter.ng-enter-active {
+  opacity: 1;
+}
+.angularjs-toast ul.toast-container li.ng-leave {
+  opacity: 1;
+  transition: 0.5s ease-in;
+}
+.angularjs-toast ul.toast-container li.ng-leave.ng-leave-active {
+  opacity: 0;
+}
+.angularjs-toast ul.toast-container.top-right {
+  right: 0;
+  margin-right: 20px;
+}
+.angularjs-toast ul.toast-container.top-right li {
+  text-align: right;
+}
+.angularjs-toast ul.toast-container.top-center {
+  left: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+.angularjs-toast ul.toast-container.top-left {
+  left: 0;
+  margin-left: 20px;
+}
+.angularjs-toast ul.toast-container.top-left li {
+  text-align: left;
+}
+.angularjs-toast ul.toast-container.right {
+  right: 0;
+  margin-right: 20px;
+}
+.angularjs-toast ul.toast-container.right li {
+  text-align: right;
+}
+.angularjs-toast ul.toast-container.center {
+  left: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+.angularjs-toast ul.toast-container.left {
+  left: 0;
+  margin-left: 20px;
+}
+.angularjs-toast ul.toast-container.left li {
+  text-align: left;
+}

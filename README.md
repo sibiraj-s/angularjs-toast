@@ -52,6 +52,7 @@ Import the modules required for angularjs-toast. It is necessary to include [ngS
 <script src="angular/angular.min.js"></script>
 <script src="angular-sanitize/angular-sanitize.min.js"></script>
 <script src="angular-animate/angular-animate.min.js"></script>
+<script src="angularjs-toast/dist/angularjs-toast.min.js"></script>
  ```
 
 add `angularjsToast` dependency to the module

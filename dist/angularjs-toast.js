@@ -1,3 +1,12 @@
+
+/*
+ * angularjs-toast
+ * @description A Simple toast notification service for AngularJS pages
+ * @version v1.0.6
+ * @link https://github.com/Sibiraj-S/angularjs-toast
+ * @licence MIT License, https://opensource.org/licenses/MIT
+ */
+
 (function() {
   'use strict';
   angular.module('angularjsToast', ['ngSanitize', 'ngAnimate']).factory('toast', ['$rootScope', '$http', '$templateCache', '$compile', '$timeout', function($rootScope, $http, $templateCache, $compile, $timeout) {

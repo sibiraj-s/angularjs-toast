@@ -13,7 +13,21 @@ You can directly clone/download [here][angularjs-toast]
 ```bash
 git clone git@github.com:Sibiraj-S/angularjs-toast.git
 ```
+or cdn
 
+##### Minified
+
+```bash
+//unpkg.com/angularjs-toast@latest/dist/angularjs-toast.min.js
+//unpkg.com/angularjs-toast@latest/dist/angularjs-toast.min.css
+```
+
+##### Pretty Printed
+
+```bash
+//unpkg.com/angularjs-toast@latest/dist/angularjs-toast.js
+//unpkg.com/angularjs-toast@latest/dist/angularjs-toast.css
+```
 or
 
 Install via Package managers such as [npm][npm], [yarn][yarn] and [bower][bower]
@@ -26,9 +40,9 @@ yarn add angularjs-toast
 bower install angularjs-toast --save
 ```
 
- ### Usage
- 
- Import the modules required for angularjs-toast. It is necessary to include [ngSanitize][ngSanitize] and [ngAnimate][ngAnimate] for angularjs-toast to work
+### Usage
+
+Import the modules required for angularjs-toast. It is necessary to include [ngSanitize][ngSanitize] and [ngAnimate][ngAnimate] for angularjs-toast to work
 
  ```html
 <-- styles -->

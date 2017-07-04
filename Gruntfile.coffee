@@ -71,15 +71,6 @@ module.exports = (grunt) ->
         files:
           'dist/angularjs-toast.js': ['dist/angularjs-toast.js']
 
-    copy:
-      demo:
-        files:[
-          expand :true
-          src: ['dist/**']
-          dest: 'demo/'
-          filter: 'isFile'
-        ]
-
     connect:
       server:
         options:
@@ -92,6 +83,6 @@ module.exports = (grunt) ->
   grunt.registerTask "default", ["coffeelint", "coffee"]
   grunt.registerTask "webserver", ["connect"]
   grunt.registerTask "develop", ["default", "watch"]
-  grunt.registerTask "dist", ["default", "ngAnnotate", "uglify", "sass", "cssmin", "copy"]
+  grunt.registerTask "dist", ["default", "ngAnnotate", "uglify", "sass", "cssmin"]
 
   return

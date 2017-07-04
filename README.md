@@ -13,7 +13,7 @@ You can directly clone/download [here][angularjs-toast]
 ```bash
 git clone git@github.com:Sibiraj-S/angularjs-toast.git
 ```
-or cdn
+or use cdn
 
 ##### Minified
 

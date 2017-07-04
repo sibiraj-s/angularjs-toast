@@ -4,7 +4,7 @@
   "description": "A Simple toast notification service for AngularJS pages",
   "scripts": {
     "precommit": "yarn test",
-    "publish": "git subtree push --prefix demo origin gh-pages",
+    "gh-pages": "git subtree push --prefix demo origin gh-pages",
     "cz": "git-cz",
     "test": "grunt coffeelint"
   },

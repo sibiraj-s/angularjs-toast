@@ -67,7 +67,7 @@ module.exports = (grunt) ->
       options:
         singleQuotes: true
 
-      ngYoutube:
+      angularjsToast:
         files:
           'dist/angularjs-toast.js': ['dist/angularjs-toast.js']
 

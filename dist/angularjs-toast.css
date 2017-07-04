@@ -136,14 +136,14 @@
 }
 .angularjs-toast ul.toast-container li.ng-enter {
   opacity: 0;
-  transition: 1s ease-in;
+  transition: 0.5s ease-in;
 }
 .angularjs-toast ul.toast-container li.ng-enter.ng-enter-active {
   opacity: 1;
 }
 .angularjs-toast ul.toast-container li.ng-leave {
   opacity: 1;
-  transition: 0.5s ease-in;
+  transition: 0.2s ease-in;
 }
 .angularjs-toast ul.toast-container li.ng-leave.ng-leave-active {
   opacity: 0;

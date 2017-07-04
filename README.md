@@ -27,6 +27,7 @@ bower install angularjs-toast --save
 ```
 
  ### Usage
+ 
  Import the modules required for angularjs-toast. It is necessary to include [ngSanitize][ngSanitize] and [ngAnimate][ngAnimate] for angularjs-toast to work
 
  ```html

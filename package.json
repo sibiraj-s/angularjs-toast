@@ -1,6 +1,6 @@
 {
   "name": "angularjs-toast",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A Simple toast notification service for AngularJS pages",
   "scripts": {
     "precommit": "yarn test",

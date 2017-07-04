@@ -34,7 +34,7 @@
          */
         &.ng-enter {
           opacity   : 0;
-          transition: 1s ease-in;
+          transition: 0.5s ease-in;
 
           &.ng-enter-active {
             opacity: 1;
@@ -43,7 +43,7 @@
 
         &.ng-leave {
           opacity   : 1;
-          transition: 0.5s ease-in;
+          transition: 0.2s ease-in;
 
           &.ng-leave-active {
             opacity: 0;

@@ -46,6 +46,12 @@ body {
       .filler {
         height: 40px;
       }
+
+      pre {
+        background  : transparent;
+        padding-left: 0;
+        border      : none;
+      }
     }
 
     table {
@@ -83,8 +89,8 @@ body {
   }
 }
 
-.masterClass {
-  margin-left: 0 !important;
+.angularjs-toast ul.toast-container.left {
+  margin-left: 0;
 }
 
 .no-pl {

@@ -38,6 +38,11 @@ body .contain .col60 {
 body .contain .col60 .filler {
   height: 40px;
 }
+body .contain .col60 pre {
+  background: transparent;
+  padding-left: 0;
+  border: none;
+}
 body .contain table th {
   padding: 15px 15px 15px 0;
   text-align: left;
@@ -62,8 +67,8 @@ body .contain table tr td:nth-child(5) {
   font-size: 12px;
 }
 
-.masterClass {
-  margin-left: 0 !important;
+.angularjs-toast ul.toast-container.left {
+  margin-left: 0;
 }
 
 .no-pl {

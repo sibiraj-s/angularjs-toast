@@ -1,0 +1,29 @@
+{
+  "name": "angularjs-toast",
+  "description": "A Simple toast notification service for AngularJS pages",
+  "authors": [
+    "Sibiraj-S"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "angularjs-notify",
+    "notification",
+    "angularjs",
+    "notify",
+    "angularjs-toast",
+    "toast-notification"
+  ],
+  "homepage": "https://github.com/Sibiraj-S/angularjs-toast",
+  "dependencies": {
+    "angular": "^1.6.5",
+    "angular-animate": "^1.6.5",
+    "angular-sanitize": "^1.6.5"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

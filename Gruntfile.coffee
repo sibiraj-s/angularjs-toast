@@ -1,5 +1,12 @@
 'use strict'
 
+banner = '/*!\n * @module <%= pkg.name %>\n' +
+  ' * @description <%= pkg.description %>\n' +
+  ' * @version v<%= pkg.version %>\n' +
+  ' * @link <%= pkg.homepage %>\n' +
+  ' * @licence MIT License, https://opensource.org/licenses/MIT\n' +
+  ' */\n\n';
+
 module.exports = (grunt) ->
   require('load-grunt-tasks')(grunt)
 
@@ -36,6 +43,15 @@ module.exports = (grunt) ->
         files:
           'dist/angularjs-toast.min.css': 'dist/angularjs-toast.css'
 
+    concat:
+      options:
+        stripBanners: true
+        banner: banner
+      dist:
+        files:
+          'dist/angularjs-toast.js': ['dist/angularjs-toast.js']
+          'dist/angularjs-toast.css': ['dist/angularjs-toast.css']
+
     watch:
       coffeescript:
         files: ['src/*.coffee']
@@ -59,6 +75,8 @@ module.exports = (grunt) ->
     uglify:
       options:
         sourceMap: true
+        output:
+          comments: '/^!/'
       target:
         files:
           'dist/angularjs-toast.min.js': ['dist/angularjs-toast.js']
@@ -83,6 +101,6 @@ module.exports = (grunt) ->
   grunt.registerTask "default", ["coffeelint", "coffee"]
   grunt.registerTask "server", ["connect"]
   grunt.registerTask "develop", ["default", "watch"]
-  grunt.registerTask "dist", ["default", "ngAnnotate", "uglify", "sass", "cssmin"]
+  grunt.registerTask "dist", ["default", "ngAnnotate", "sass", "concat", "uglify", "cssmin"]
 
   return

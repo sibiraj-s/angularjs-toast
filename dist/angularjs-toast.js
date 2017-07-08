@@ -1,9 +1,8 @@
-
-/*
+/*!
  * @module angularjs-toast
  * @description A Simple toast notification service for AngularJS pages
  * @version v1.0.6
- * @link https://github.com/Sibiraj-S/angularjs-toast
+ * @link https://github.com/Sibiraj-S/angularjs-toast#readme
  * @licence MIT License, https://opensource.org/licenses/MIT
  */
 

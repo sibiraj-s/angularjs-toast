@@ -1,7 +1,7 @@
 /*!
  * @module angularjs-toast
  * @description A Simple toast notification service for AngularJS pages
- * @version v1.0.6
+ * @version v1.0.7
  * @link https://github.com/Sibiraj-S/angularjs-toast#readme
  * @licence MIT License, https://opensource.org/licenses/MIT
  */
@@ -47,7 +47,7 @@
       /*
        * user parameters
        */
-      var htmlTemplate, json, pushToArray;
+      var htmlTemplate, json, pushToArray, timeout;
       args.duration = args.duration ? args.duration : duration;
       args.maxToast = args.maxToast ? args.maxToast : maxToast;
       args.insertFromTop = args.insertFromTop ? args.insertFromTop : true;
@@ -91,6 +91,19 @@
       }
 
       /*
+       * remove element besed on time interval ->args.duration
+       */
+      timeout = function(element) {
+        $timeout(function() {
+          var index;
+          index = scope.$toastMessages.indexOf(element);
+          if (index !== -1) {
+            scope.$toastMessages.splice(index, 1);
+          }
+        }, args.duration);
+      };
+
+      /*
        * append inputs to json variable
        * this will be pushed to the ->scope.$toastMessages array
        */
@@ -109,6 +122,7 @@
         } else {
           scope.$toastMessages.push(json);
         }
+        timeout(json);
       };
 
       /*
@@ -125,17 +139,6 @@
       } else {
         pushToArray();
       }
-
-      /*
-       * remove element besed on time interval ->args.duration
-       */
-      $timeout(function() {
-        if (args.removeFromTop) {
-          scope.$toastMessages.shift();
-        } else {
-          scope.$toastMessages.pop();
-        }
-      }, args.duration);
 
       /*
        * close selected element

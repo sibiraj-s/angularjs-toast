@@ -88,6 +88,18 @@ angular.module 'angularjsToast', ['ngSanitize', 'ngAnimate']
             return
 
       ###
+      # remove element besed on time interval ->args.duration
+      ###
+      timeout = (element) ->
+        $timeout ->
+          index = scope.$toastMessages.indexOf(element)
+          if index isnt -1
+            scope.$toastMessages.splice(index, 1)
+            return
+        , args.duration
+        return
+
+      ###
       # append inputs to json variable
       # this will be pushed to the ->scope.$toastMessages array
       ###
@@ -101,6 +113,7 @@ angular.module 'angularjsToast', ['ngSanitize', 'ngAnimate']
       ###
       pushToArray = ->
         if args.insertFromTop then scope.$toastMessages.unshift(json) else scope.$toastMessages.push(json)
+        timeout(json)
         return
 
       ###
@@ -112,14 +125,6 @@ angular.module 'angularjsToast', ['ngSanitize', 'ngAnimate']
         pushToArray()
       else
         pushToArray()
-
-      ###
-      # remove element besed on time interval ->args.duration
-      ###
-      $timeout ->
-        if args.removeFromTop then scope.$toastMessages.shift() else scope.$toastMessages.pop()
-        return
-      , args.duration
 
       ###
       # close selected element

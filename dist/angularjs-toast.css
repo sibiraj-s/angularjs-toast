@@ -1,16 +1,11 @@
 /*!
  * @module angularjs-toast
  * @description A Simple toast notification service for AngularJS pages
- * @version v1.0.7
+ * @version v1.0.8
  * @link https://github.com/Sibiraj-S/angularjs-toast#readme
  * @licence MIT License, https://opensource.org/licenses/MIT
  */
 
-.toast-alert, .angularjs-toast {
-  /*
-   * bootstrap alert class
-   */
-}
 .toast-alert .alert, .angularjs-toast .alert {
   padding: 15px;
   margin-bottom: 20px;
@@ -135,9 +130,6 @@
 }
 .angularjs-toast ul.toast-container li {
   transition: 1s ease;
-  /*
-   * animate while element enters or leaves
-   */
 }
 .angularjs-toast ul.toast-container li .alert {
   display: inline-block;

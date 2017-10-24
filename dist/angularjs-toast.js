@@ -1,7 +1,7 @@
 /*!
  * @module angularjs-toast
  * @description A Simple toast notification service for AngularJS pages
- * @version v1.0.7
+ * @version v1.0.8
  * @link https://github.com/Sibiraj-S/angularjs-toast#readme
  * @licence MIT License, https://opensource.org/licenses/MIT
  */
@@ -15,7 +15,7 @@
      */
     var container, dismissible, duration, emptyMessage, html, maxToast, position, scope, templateBase, toast, toastClass;
     templateBase = 'angularjs-toast.html';
-    html = '<div class="angularjs-toast" ng-class="$toastPlace ? \'position-fixed\' : \'position-relative\'">' + '  <ul class="toast-container" ng-class="[$position, $masterClass]">' + '    <li class="animate-repeat" ng-repeat="data in $toastMessages track by data.id">' + '      <div class="alert alert-dismissible" ng-class="::$toastClass">{{data.message}}' + '        <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close" ng-click="$close($index)" ng-if="$dismissible">×</a>' + '      </div>' + '    </li>' + '  </ul>' + '</div>';
+    html = '<div class="angularjs-toast" ng-class="$toastPlace ? \'position-fixed\' : \'position-relative\'">' + '  <ul class="toast-container" ng-class="[$position, $masterClass]">' + '    <li class="animate-repeat" ng-repeat="data in $toastMessages track by data.id">' + '      <div class="alert alert-dismissible" ng-class="::$toastClass">' + '        <span ng-bind-html="data.message"></span>' + '        <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close" ng-click="$close($index)" ng-if="$dismissible">×</a>' + '      </div>' + '    </li>' + '  </ul>' + '</div>';
 
     /*
      * put html into template cache

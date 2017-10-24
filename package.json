@@ -1,13 +1,12 @@
 {
   "name": "angularjs-toast",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "A Simple toast notification service for AngularJS pages",
   "scripts": {
     "postinstall": "bower install",
     "precommit": "yarn test",
-    "gh-pages": "git subtree push --prefix demo origin gh-pages",
     "cz": "git-cz",
-    "test": "grunt coffeelint"
+    "test": "grunt coffeelint && grunt dist"
   },
   "repository": {
     "type": "git",

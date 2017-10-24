@@ -2,7 +2,7 @@
 
 var app = angular.module('myApp', ['angularjsToast']);
 
-app.controller('mainController', ['$scope', 'toast', function($scope, toast) {
+app.controller('mainController', ['$scope', 'toast', function ($scope, toast) {
 
   var array = ["Lorem ispsum", "Lorem ipsum dolor cadet", "angularjs-toast", "a simple toast message", "another simple toast message"]
 
@@ -12,7 +12,7 @@ app.controller('mainController', ['$scope', 'toast', function($scope, toast) {
     return array[Math.floor(Math.random() * array.length)];
   }
 
-  $scope.toast = function(cls) {
+  $scope.toast = function (cls) {
     toast({
       masterClass: 'masterClass',
       className: cls,

@@ -4,9 +4,9 @@
   "description": "A Simple toast notification service for AngularJS pages",
   "scripts": {
     "postinstall": "bower install",
-    "precommit": "yarn test",
+    "precommit": "yarn test && grunt dist",
     "cz": "git-cz",
-    "test": "grunt coffeelint && grunt dist"
+    "test": "grunt coffeelint"
   },
   "repository": {
     "type": "git",

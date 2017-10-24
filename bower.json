@@ -15,9 +15,9 @@
   ],
   "homepage": "https://github.com/Sibiraj-S/angularjs-toast",
   "dependencies": {
-    "angular": "^1.6.5",
-    "angular-animate": "^1.6.5",
-    "angular-sanitize": "^1.6.5"
+    "angular": ">=1.6.0",
+    "angular-animate": ">=1.6.0",
+    "angular-sanitize": ">=1.6.0"
   },
   "ignore": [
     "**/.*",

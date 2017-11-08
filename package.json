@@ -3,6 +3,10 @@
   "version": "1.0.8",
   "description": "A Simple toast notification service for AngularJS pages",
   "scripts": {
+    "start": "grunt serve",
+    "watch": "grunt watch",
+    "develop": "grunt develop",
+    "build": "grunt dist",
     "postinstall": "bower install",
     "precommit": "yarn test && grunt dist",
     "cz": "git-cz",

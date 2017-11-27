@@ -8,7 +8,7 @@
     "develop": "grunt develop",
     "build": "grunt dist",
     "postinstall": "bower install",
-    "precommit": "yarn test && grunt dist",
+    "precommit": "yarn test",
     "cz": "git-cz",
     "test": "grunt coffeelint"
   },

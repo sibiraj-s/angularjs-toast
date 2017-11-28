@@ -1,31 +1,25 @@
 ```
 .
-├── demo
-│   ├── app.js
-│   ├── favicon.ico
-│   ├── index.html
-│   ├── style.css
-│   └── style.scss
-├── dist
-│   ├── angularjs-toast.css
-│   ├── angularjs-toast.js
-│   ├── angularjs-toast.min.css
-│   ├── angularjs-toast.min.css.map
-│   ├── angularjs-toast.min.js
-│   └── angularjs-toast.min.js.map
+├── scripts
+│   ├── postbuild.sh
+│   ├── prebuild.sh
+│   └── release.sh
 ├── src
 │   ├── _alert.scss
 │   ├── angularjs-toast.coffee
 │   ├── angularjs-toast.html
 │   └── angularjs-toast.scss
+├── .vscode
+│   └── settings.json
+├── coffeelint.json
 ├── .gitignore
-├── .pullapprove.yml
-├── .travis.yml
 ├── Gruntfile.coffee
 ├── LICENSE
-├── README.md
-├── TREE.md
-├── coffeelint.json
 ├── package.json
+├── package-lock.json
+├── .pullapprove.yml
+├── README.md
+├── .travis.yml
+├── TREE.md
 └── yarn.lock
 ```

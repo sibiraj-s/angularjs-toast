@@ -9,6 +9,9 @@ Icon
 ## sass
 .sass-cache
 
+## distribution files
+dist/
+
 # Thumbnails
 ._*
 

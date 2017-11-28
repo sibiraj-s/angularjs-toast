@@ -1,16 +1,20 @@
 {
   "name": "angularjs-toast",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "A Simple toast notification service for AngularJS pages",
   "scripts": {
-    "start": "grunt serve",
-    "watch": "grunt watch",
-    "develop": "grunt develop",
-    "build": "grunt dist",
-    "postinstall": "bower install",
-    "precommit": "yarn test",
+    "build": "grunt build",
     "cz": "git-cz",
-    "test": "grunt coffeelint"
+    "develop": "grunt develop",
+    "lint": "grunt coffeelint",
+    "postbuild": "sh ./scripts/postbuild.sh",
+    "prebuild": "sh ./scripts/prebuild.sh",
+    "precommit": "yarn run lint",
+    "prerelease": "yarn run build",
+    "release": "sh ./scripts/release.sh",
+    "start": "grunt serve",
+    "test": "yarn run lint",
+    "watch": "grunt watch"
   },
   "repository": {
     "type": "git",
@@ -31,6 +35,9 @@
   },
   "homepage": "https://github.com/Sibiraj-S/angularjs-toast#readme",
   "devDependencies": {
+    "angular": "^1.6.7",
+    "angular-animate": "^1.6.7",
+    "angular-sanitize": "^1.6.7",
     "commitizen": "^2.9.6",
     "cz-conventional-changelog": "^2.1.0",
     "delete-empty": "^1.0.1",
@@ -47,7 +54,7 @@
     "husky": "^0.14.3",
     "load-grunt-tasks": "^3.5.2"
   },
-  "dependencies": {
+  "peerDependencies": {
     "angular": ">=1.6.0",
     "angular-animate": ">=1.6.0",
     "angular-sanitize": ">=1.6.0"

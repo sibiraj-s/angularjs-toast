@@ -11,7 +11,7 @@ angular.module 'angularjsToast', ['ngSanitize', 'ngAnimate']
     '    <li class="animate-repeat" ng-repeat="data in $toastMessages track by data.id">'+
     '      <div class="alert alert-dismissible" ng-class="::$toastClass">'+
     '        <span ng-bind-html="data.message"></span>'+
-    '        <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close" ng-click="$close($index)" ng-if="$dismissible">×</a>'+
+    '        <a href="javascript:void(0)" class="close" data-dismiss="alert" aria-label="close" title="close" ng-click="$close($index)" ng-if="$dismissible">×</a>'+
     '      </div>'+
     '    </li>'+
     '  </ul>'+

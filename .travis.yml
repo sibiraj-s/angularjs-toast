@@ -7,8 +7,5 @@ branches:
   only:
   - master
 
-before_install:
-  - yarn global add grunt-cli
-
 script:
-  - yarn run test
+  - npm run test

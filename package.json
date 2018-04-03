@@ -6,13 +6,13 @@
     "build": "grunt build",
     "cz": "git-cz",
     "start": "grunt serve",
-    "test": "yarn run lint",
+    "test": "npm run lint",
     "develop": "grunt develop",
     "lint": "grunt coffeelint",
     "postbuild": "sh ./scripts/postbuild.sh",
     "prebuild": "sh ./scripts/prebuild.sh",
-    "precommit": "yarn run lint",
-    "prerelease": "yarn run build",
+    "precommit": "npm run lint",
+    "prerelease": "npm run build",
     "release": "sh ./scripts/release.sh"
   },
   "repository": {

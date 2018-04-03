@@ -17,7 +17,6 @@ angular.module 'angularjsToast', ['ngSanitize', 'ngAnimate']
     '  </ul>'+
     '</div>'
 
-
     # put html into template cache
     $templateCache.put(templateBase, html)
 
@@ -84,7 +83,6 @@ angular.module 'angularjsToast', ['ngSanitize', 'ngAnimate']
       json =
         message: args.message
         id: new Date().getUTCMilliseconds()
-        count: 1
 
       # push elements to array
       pushToArray = ->

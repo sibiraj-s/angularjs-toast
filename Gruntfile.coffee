@@ -52,26 +52,6 @@ module.exports = (grunt) ->
           'dist/angularjs-toast.js': ['dist/angularjs-toast.js']
           'dist/angularjs-toast.css': ['dist/angularjs-toast.css']
 
-    watch:
-      coffeescript:
-        files: ['src/*.coffee']
-        tasks: ['default']
-      sass:
-        files: ['src/**/*.scss']
-        tasks: ['sass']
-      cssMin:
-        files: ['dist/angularjs-toast.css']
-        tasks: ['cssmin']
-      demoCss:
-        files: ['docs/**/*.scss']
-        tasks: ['sass']
-      demoHtml:
-        files: ['docs/**/*.html']
-      demoJs:
-        files: ['docs/**/*.js']
-      options:
-        livereload: true
-
     uglify:
       options:
         sourceMap: true
@@ -93,12 +73,33 @@ module.exports = (grunt) ->
       server:
         options:
           base: './'
+          host: 'localhost'
           keepalive: true
           livereload: true
 
+    watch:
+      coffeescript:
+        files: ['src/*.coffee']
+        tasks: ['default']
+      sass:
+        files: ['src/**/*.scss']
+        tasks: ['sass']
+      cssMin:
+        files: ['dist/angularjs-toast.css']
+        tasks: ['cssmin']
+      demoCss:
+        files: ['docs/**/*.scss']
+        tasks: ['sass']
+      demoHtml:
+        files: ['docs/**/*.html']
+      demoJs:
+        files: ['docs/**/*.js']
+      options:
+        livereload: true
+
 
   # Grunt task(s).
-  grunt.registerTask "default", ["coffeelint", "coffee"]
+  grunt.registerTask "default", ["coffeelint", "coffee", "ngAnnotate"]
   grunt.registerTask "serve", ["connect"]
   grunt.registerTask "develop", ["default", "watch"]
   grunt.registerTask "build", ["default", "ngAnnotate", "sass", "concat", "uglify", "cssmin"]

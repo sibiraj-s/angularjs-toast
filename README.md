@@ -1,6 +1,5 @@
 # angularjs-toast [![Build Status](https://travis-ci.org/Sibiraj-S/angularjs-toast.svg?branch=master)](https://travis-ci.org/Sibiraj-S/angularjs-toast) [![Maintenance](https://img.shields.io/badge/maintained%20%3F-no-red.svg)](https://github.com/Sibiraj-S/angularjs-toast)
 
-
 angularjs-toast is a simple service for creating toast notification for AngularJS pages
 
 live demo [here][demo]
@@ -14,6 +13,7 @@ You can directly clone/download [here][angularjs-toast]
 ```bash
 git clone git@github.com:Sibiraj-S/angularjs-toast.git
 ```
+
 or use cdn
 
 ##### Minified
@@ -29,6 +29,7 @@ or use cdn
 //unpkg.com/angularjs-toast@latest/angularjs-toast.js
 //unpkg.com/angularjs-toast@latest/angularjs-toast.css
 ```
+
 or
 
 Install via Package managers such as [npm][npm] or [yarn][yarn]
@@ -90,7 +91,6 @@ all options are type sensitive
 | maxToast      | number                | 7             | maximum number of toast messages to show. if max reached the element inserted first will be removed |
 | insertFromTop | boolean               | true          | setting true will insert new messages on top else inserts at bottom |
 | removeFromTop | boolean               | false         | setting true removes first element when maxToast is reached else removes last element |
-
 
 [ngAnimate]: https://docs.angularjs.org/api/ngAnimate
 [ngSanitize]: https://docs.angularjs.org/api/ngSanitize

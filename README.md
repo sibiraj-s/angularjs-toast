@@ -2,7 +2,9 @@
 
 angularjs-toast is a simple service for creating toast notification for AngularJS pages
 
-live demo [here][demo]
+Live demo [here][demo]
+
+If you are looking for Angular(v5.x) version, Try [ngx-notifier][ngx-notifier]
 
 ## Getting Started
 
@@ -97,5 +99,6 @@ all options are type sensitive
 [npm]: https://www.npmjs.com/
 [yarn]: https://yarnpkg.com/lang/en/
 [github]: https://sibiraj-s.github.io/
+[ngx-notifier]: https://github.com/Sibiraj-S/ngx-notifier
 [angularjs-toast]: https://github.com/Sibiraj-S/angularjs-toast
 [demo]: https://sibiraj-s.github.io/angularjs-toast/

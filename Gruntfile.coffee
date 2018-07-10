@@ -74,6 +74,7 @@ module.exports = (grunt) ->
         options:
           base: './'
           hostname: 'localhost'
+          open: true
           keepalive: true
           livereload: true
 
@@ -81,21 +82,21 @@ module.exports = (grunt) ->
       coffeescript:
         files: ['src/*.coffee']
         tasks: ['default']
+      scripts:
+        files: ['docs/**/*.js', 'dist/**/*.js']
+        options:
+          livereload: true
       sass:
-        files: ['src/**/*.scss']
+        files: ['src/**/*.scss', 'docs/**/*.scss']
         tasks: ['sass']
-      cssMin:
-        files: ['dist/angularjs-toast.css']
-        tasks: ['cssmin']
-      demoCss:
-        files: ['docs/**/*.scss']
-        tasks: ['sass']
-      demoHtml:
+      css:
+        files: ['docs/**/*.css', 'dist/**/*.css']
+        options:
+          livereload: true
+      html:
         files: ['docs/**/*.html']
-      demoJs:
-        files: ['docs/**/*.js']
-      options:
-        livereload: true
+        options:
+          livereload: true
 
 
   # Grunt task(s).

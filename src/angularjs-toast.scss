@@ -49,30 +49,6 @@
                 }
             }
 
-            &.top-right {
-                right: 0;
-                margin-right: 20px;
-
-                li {
-                    text-align: right;
-                }
-            }
-
-            &.top-center {
-                left: 0;
-                left: 50%;
-                transform: translate(-50%, 0);
-            }
-
-            &.top-left {
-                left: 0;
-                margin-left: 20px;
-
-                li {
-                    text-align: left;
-                }
-            }
-
             &.right {
                 right: 0;
                 margin-right: 20px;

@@ -1,4 +1,4 @@
-# angularjs-toast [![NPM Version](https://img.shields.io/npm/v/angularjs-toast.svg)](https://www.npmjs.com/package/angularjs-toast) [![Build Status](https://travis-ci.org/Sibiraj-S/angularjs-toast.svg?branch=master)](https://travis-ci.org/Sibiraj-S/angularjs-toast) [![Maintenance](https://img.shields.io/badge/maintained%20%3F-no-red.svg)](https://github.com/Sibiraj-S/angularjs-toast)
+# angularjs-toast [![NPM Version](https://img.shields.io/npm/v/angularjs-toast.svg)](https://www.npmjs.com/package/angularjs-toast) [![Build Status](https://travis-ci.org/Sibiraj-S/angularjs-toast.svg?branch=master)](https://travis-ci.org/Sibiraj-S/angularjs-toast)
 
 angularjs-toast is a simple service for creating toast notification for AngularJS pages
 
@@ -83,7 +83,7 @@ all options are type sensitive
 
 | Property      | Type                  | Default       | Description                              |
 | ------------- | --------------------- | ------------- | ---------------------------------------- |
-| class         | string                | alert-success | this applies / overrides the CSS for toast elements |
+| className         | string                | alert-success | accepted values are alert-(success|danger|primary|info) |
 | duration      | number                | 5000          | timeout for each toast messages to disappear |
 | position      | string                | right         | position of the element can be 'left', 'center' and 'right' |
 | container     | string                | body          | appends alert to the specific class or id or element. inputs should be like '.class' or '#id' |

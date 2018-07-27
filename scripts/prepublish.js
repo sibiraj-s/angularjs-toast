@@ -1,4 +1,4 @@
-'use-strict';
+'use strict';
 
 const chalk = require('chalk');
 const RELEASE_MODE = process.env.RELEASE_MODE;

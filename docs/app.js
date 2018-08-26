@@ -3,7 +3,6 @@
 var app = angular.module('myApp', ['angularjsToast']);
 
 app.controller('mainController', ['$scope', 'toast', function ($scope, toast) {
-
   var array = [
     'Lorem ispsum',
     'Lorem ipsum dolor cadet',
@@ -31,5 +30,4 @@ app.controller('mainController', ['$scope', 'toast', function ($scope, toast) {
 
     $scope.dismiss = true;
   };
-
 }]);

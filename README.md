@@ -18,14 +18,14 @@ git clone git@github.com:Sibiraj-S/angularjs-toast.git
 
 or use cdn
 
-##### Minified
+**Minified:**
 
 ```bash
 //unpkg.com/angularjs-toast@latest/angularjs-toast.min.js
 //unpkg.com/angularjs-toast@latest/angularjs-toast.min.css
 ```
 
-##### Pretty Printed
+**Pretty Printed:**
 
 ```bash
 //unpkg.com/angularjs-toast@latest/angularjs-toast.js

@@ -4,8 +4,6 @@ angularjs-toast is a simple service for creating toast notification for AngularJ
 
 Live demo [here][demo]
 
-If you are looking for Angular(v5.x) version, Try [ngx-notifier][ngx-notifier]
-
 ## Getting Started
 
 ### Installation

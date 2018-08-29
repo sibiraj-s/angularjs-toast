@@ -46,7 +46,7 @@
     "eslint-plugin-promise": "^4.0.0",
     "eslint-plugin-standard": "^4.0.0",
     "grunt": "^1.0.3",
-    "grunt-coffeelintr": "^1.1.0",
+    "grunt-coffeelintr": "^1.1.1",
     "grunt-contrib-coffee": "^2.0.0",
     "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-connect": "^1.0.2",

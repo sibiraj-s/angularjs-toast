@@ -11,5 +11,6 @@
     "node_modules/": true
   },
   "files.insertFinalNewline": true,
-  "files.trimFinalNewlines": true
+  "files.trimFinalNewlines": true,
+  "javascript.format.insertSpaceBeforeFunctionParenthesis": true
 }

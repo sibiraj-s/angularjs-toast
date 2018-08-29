@@ -13,7 +13,7 @@ app.controller('mainController', ['$scope', 'toast', function ($scope, toast) {
 
   $scope.dismiss = false;
 
-  function random() {
+  function random () {
     return array[Math.floor(Math.random() * array.length)];
   }
 

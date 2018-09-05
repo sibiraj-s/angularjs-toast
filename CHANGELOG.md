@@ -11,6 +11,13 @@ All notable changes to this project will be documented in this file.
 > - Documentation
 > - Internal
 
+## Unreleased
+
+#### Dependency Updates
+
+* update eslint to v5.5.0 ([8cc3153](https://github.com/Sibiraj-S/angularjs-toast/commit/8cc3153))
+* update grunt-contrib-uglify to v4.0.0 ([8cc3153](https://github.com/Sibiraj-S/angularjs-toast/commit/8cc3153))
+
 ## v2.0.0 (2018-08-26)
 
 #### Internal

@@ -35,12 +35,20 @@ angular.module 'angularjsToast', ['ngSanitize', 'ngAnimate']
 
     # toast function
     toast = (args) ->
-
+       
+      #function to manualy update scope;
+      _scopeUpdate = ->
+        setTimeout ->
+          scope.$apply()
+        , 10
+       
+      
       # user parameters
       args.duration = if args.duration then args.duration else duration
       args.maxToast = if args.maxToast then args.maxToast else maxToast
-      args.insertFromTop = if args.insertFromTop then args.insertFromTop else true
-      args.removeFromTop = if args.removeFromTop then args.removeFromTop else false
+      #if user send false args to dont insert from top it will insert anyways, coz false goes true
+      args.insertFromTop = if typeof args.insertFromTop != 'undefined' && args.insertFromTop != null then args.insertFromTop else true
+      args.removeFromTop = if typeof args.removeFromTop != 'undefined' && args.removeFromTop != null then args.removeFromTop else false
       args.container = if args.container then document.querySelector(args.container) else container
 
       # values that bind to HTML
@@ -87,6 +95,8 @@ angular.module 'angularjsToast', ['ngSanitize', 'ngAnimate']
       # push elements to array
       pushToArray = ->
         if args.insertFromTop then scope.$toastMessages.unshift(json) else scope.$toastMessages.push(json)
+        #scope update bug correction
+        _scopeUpdate()          
         timeout(json)
         return
 

@@ -11,12 +11,23 @@ All notable changes to this project will be documented in this file.
 > - Documentation
 > - Internal
 
-## Unreleased
+## v2.0.1 (2018-09-17)
+
+#### Bug Fixes
+
+* 'insertFromTop' is set to `true` when the condition fails, the value is set to `false` by default ([f81fb6d](https://github.com/Sibiraj-S/angularjs-toast/commit/f81fb6d))
+
+#### Internal
+
+* documentation updates and UI tweaks in demo page ([deff0e8](https://github.com/Sibiraj-S/angularjs-toast/commit/deff0e8))
 
 #### Dependency Updates
 
-* update eslint to v5.5.0 ([8cc3153](https://github.com/Sibiraj-S/angularjs-toast/commit/8cc3153))
+* update eslint to v5.6.0 ([65ed8b0](https://github.com/Sibiraj-S/angularjs-toast/commit/65ed8b0))
 * update grunt-contrib-uglify to v4.0.0 ([8cc3153](https://github.com/Sibiraj-S/angularjs-toast/commit/8cc3153))
+* update eslint-plugin-promise to v4.0.1 ([65ed8b0](https://github.com/Sibiraj-S/angularjs-toast/commit/65ed8b0))
+* update grunt-contrib-connect to v2.0.0 ([65ed8b0](https://github.com/Sibiraj-S/angularjs-toast/commit/65ed8b0))
+* update grunt-contrib-cssmin to v3.0.0 ([65ed8b0](https://github.com/Sibiraj-S/angularjs-toast/commit/65ed8b0))
 
 ## v2.0.0 (2018-08-26)
 
@@ -75,7 +86,7 @@ Just a Maintenance Release.
 
 ## v1.0.12 (2018-03-27)
 
-#### INTERNAL
+#### Internal
 
 * remove unused devDependency ([eaf52a7](https://github.com/Sibiraj-S/angularjs-toast/commit/eaf52a7))
 * remove TREE.md ([6f69310](https://github.com/Sibiraj-S/angularjs-toast/commit/6f69310))

@@ -39,7 +39,7 @@ angular.module 'angularjsToast', ['ngSanitize', 'ngAnimate']
       # user parameters
       args.duration = if args.duration then args.duration else duration
       args.maxToast = if args.maxToast then args.maxToast else maxToast
-      args.insertFromTop = if args.insertFromTop then args.insertFromTop else true
+      args.insertFromTop = if args.insertFromTop then args.insertFromTop else false
       args.removeFromTop = if args.removeFromTop then args.removeFromTop else false
       args.container = if args.container then document.querySelector(args.container) else container
 

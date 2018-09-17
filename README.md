@@ -89,7 +89,7 @@ all options are type sensitive
 | message       | html-string or string | Hi there!     | can be HTML or plain string              |
 | dismissible   | boolean               | true          | show / hide the close icon. if set to false the toast will hide on timeout |
 | maxToast      | number                | 7             | maximum number of toast messages to show. if max reached the element inserted first will be removed |
-| insertFromTop | boolean               | true          | setting true will insert new messages on top else inserts at bottom |
+| insertFromTop | boolean               | false         | setting true will insert new messages on top else inserts at bottom |
 | removeFromTop | boolean               | false         | setting true removes first element when maxToast is reached else removes last element |
 
 [ngAnimate]: https://docs.angularjs.org/api/ngAnimate

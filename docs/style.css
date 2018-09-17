@@ -3,14 +3,21 @@
   outline: 0;
 }
 
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
   width: 100%;
   min-width: 1200px;
-  overflow: hidden;
   font-family: "Open Sans", sans-serif;
   font-size: 14px;
+  overflow: hidden;
+  overflow-x: auto;
 }
 body p {
   font-size: 13px;
@@ -20,11 +27,13 @@ body .hljs {
 }
 body .contain {
   display: flex;
-  padding: 10px 0;
 }
 body .contain .col40 {
   padding: 15px;
   flex-basis: 40%;
+  height: 100vh;
+  overflow: auto;
+  overflow-x: hidden;
 }
 body .contain .col60 {
   padding: 15px;
@@ -33,9 +42,6 @@ body .contain .col60 {
   height: 100vh;
   overflow: auto;
   overflow-x: hidden;
-}
-body .contain .col60 .filler {
-  height: 40px;
 }
 body .contain .col60 pre {
   background: transparent;

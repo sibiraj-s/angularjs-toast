@@ -8,14 +8,21 @@
   }
 }
 
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
   width: 100%;
   min-width: 1200px;
-  overflow: hidden;
   font-family: "Open Sans", sans-serif;
   font-size: 14px;
+  overflow: hidden;
+  overflow-x: auto;
 
   p {
     font-size: 13px;
@@ -27,11 +34,13 @@ body {
 
   .contain {
     display: flex;
-    padding: 10px 0;
 
     .col40 {
       padding: 15px;
       flex-basis: 40%;
+      height: 100vh;
+      overflow: auto;
+      overflow-x: hidden;
     }
 
     .col60 {
@@ -41,10 +50,6 @@ body {
       height: 100vh;
       overflow: auto;
       overflow-x: hidden;
-
-      .filler {
-        height: 40px;
-      }
 
       pre {
         background: transparent;
@@ -88,8 +93,10 @@ body {
   }
 }
 
-.angularjs-toast ul.toast-container.left {
-  margin-left: 0;
+.angularjs-toast {
+  ul.toast-container.left {
+    margin-left: 0;
+  }
 }
 
 .no-pl {

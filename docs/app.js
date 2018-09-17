@@ -25,7 +25,8 @@ app.controller('mainController', ['$scope', 'toast', function ($scope, toast) {
       message: random(),
       position: 'left',
       container: '#appendAlert',
-      maxToast: 4
+      maxToast: 4,
+      insertFromTop: true
     });
 
     $scope.dismiss = true;

@@ -1,4 +1,4 @@
-# angularjs-toast [![NPM Version](https://img.shields.io/npm/v/angularjs-toast.svg)](https://www.npmjs.com/package/angularjs-toast) [![Build Status](https://travis-ci.com/Sibiraj-S/angularjs-toast.svg?branch=master)](https://travis-ci.com/Sibiraj-S/angularjs-toast)
+# angularjs-toast [![NPM Version](https://img.shields.io/npm/v/angularjs-toast.svg)](https://www.npmjs.com/package/angularjs-toast) [![Build Status](https://travis-ci.com/sibiraj-s/angularjs-toast.svg?branch=master)](https://travis-ci.com/sibiraj-s/angularjs-toast)
 
 angularjs-toast is a simple service for creating toast notification for AngularJS pages
 
@@ -11,7 +11,7 @@ Live demo [here][demo]
 You can directly clone/download [here][angularjs-toast]
 
 ```bash
-git clone git@github.com:Sibiraj-S/angularjs-toast.git
+git clone git@github.com:sibiraj-s/angularjs-toast.git
 ```
 
 or use cdn
@@ -95,6 +95,6 @@ all options are type sensitive
 [npm]: https://www.npmjs.com/
 [yarn]: https://yarnpkg.com/lang/en/
 [github]: https://sibiraj-s.github.io/
-[ngx-notifier]: https://github.com/Sibiraj-S/ngx-notifier
-[angularjs-toast]: https://github.com/Sibiraj-S/angularjs-toast
+[ngx-notifier]: https://github.com/sibiraj-s/ngx-notifier
+[angularjs-toast]: https://github.com/sibiraj-s/angularjs-toast
 [demo]: https://sibiraj-s.github.io/angularjs-toast/

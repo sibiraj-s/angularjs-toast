@@ -22,17 +22,17 @@
     "angularjs-toast",
     "toast-notification"
   ],
-  "author": "Sibiraj-S",
+  "author": "sibiraj-s",
   "license": "MIT",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Sibiraj-S/angularjs-toast.git"
+    "url": "git+https://github.com/sibiraj-s/angularjs-toast.git"
   },
   "bugs": {
-    "url": "https://github.com/Sibiraj-S/angularjs-toast/issues"
+    "url": "https://github.com/sibiraj-s/angularjs-toast/issues"
   },
-  "homepage": "https://github.com/Sibiraj-S/angularjs-toast#readme",
+  "homepage": "https://github.com/sibiraj-s/angularjs-toast#readme",
   "devDependencies": {
     "angular": "^1.7.4",
     "angular-animate": "^1.7.4",

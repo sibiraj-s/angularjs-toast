@@ -11,11 +11,16 @@ All notable changes to this project will be documented in this file.
 > - Documentation
 > - Internal
 
-## Unreleased
+## v2.0.2 (2018-10-04)
 
 #### Dependency Updates
 
 * update husky to v1.1.0 ([17c7cce](https://github.com/sibiraj-s/angularjs-toast/commit/17c7cce))
+
+#### Internal
+
+* update github username ([05ea495](https://github.com/sibiraj-s/angularjs-toast/commit/05ea495))
+* remove vscode settings in favour of editor config ([f867985](https://github.com/sibiraj-s/angularjs-toast/commit/f867985))
 
 ## v2.0.1 (2018-09-17)
 

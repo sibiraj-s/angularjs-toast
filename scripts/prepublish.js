@@ -6,7 +6,7 @@ const { RELEASE_MODE } = process.env;
 
 const errorMessgae = `${'Publishing directly to npm is restricted.'
   + '\n'
-  + 'Run '}${chalk.black(`\`${chalk.underline('npm run release')}\``)} to publish the package.`
+  + 'Run '}${chalk.cyan(`\`${chalk.underline('npm run release')}\``)} to publish the package.`
   + '\n';
 
 if (!RELEASE_MODE) {

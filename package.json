@@ -10,7 +10,6 @@
     "lint": "grunt lint",
     "postbuild": "sh ./scripts/postbuild.sh",
     "prebuild": "sh ./scripts/prebuild.sh",
-    "precommit": "npm run test",
     "prepublishOnly": "node ./scripts/prepublish.js",
     "prerelease": "npm run build",
     "release": "sh ./scripts/release.sh"
@@ -56,7 +55,7 @@
     "grunt-contrib-watch": "^1.1.0",
     "grunt-eslint": "^21.0.0",
     "grunt-ng-annotate": "^3.0.0",
-    "husky": "^0.14.3",
+    "husky": "^1.1.0",
     "load-grunt-tasks": "^4.0.0"
   },
   "peerDependencies": {

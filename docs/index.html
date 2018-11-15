@@ -16,11 +16,15 @@
 <body ng-controller="mainController">
   <div class="contain">
     <div class="col40">
-      <a class="github-button" href="https://github.com/sibiraj-s" aria-label="Follow @sibiraj-s on GitHub">Follow @sibiraj-s</a>
-      <a class="github-button" href="https://github.com/sibiraj-s/angularjs-toast/fork" data-icon="octicon-repo-forked" aria-label="Fork sibiraj-s/angularjs-toast on GitHub">Fork</a>
-      <a class="github-button" href="https://github.com/sibiraj-s/angularjs-toast/archive/master.zip" data-icon="octicon-cloud-download"
-        aria-label="Download sibiraj-s/angularjs-toast on GitHub">Download angularjs-toast</a>
-      <br>
+      <div id="github-badges">
+        <a href="https://github.com/sibiraj-s/angularjs-toast/fork" aria-label="Fork sibiraj-s/angularjs-toast on GitHub"
+          target="_blank">
+          <img src="https://img.shields.io/badge/Fork----.svg?style=social&label=Fork&logo=git" alt="Follow @sibiraj-s">
+        </a>
+        <a href="https://github.com/sibiraj-s" aria-label="Follow @sibiraj-s on GitHub" target="_blank">
+          <img src="https://img.shields.io/github/followers/sibiraj-s.svg?style=social&label=Follow @sibiraj-s" alt="Fork">
+        </a>
+      </div>
       <br>
       <h3>angularjs-toast demo</h3>
       <p>angularjs-toast is a simple service for creating toast notification for AngularJS pages</p>
@@ -79,7 +83,8 @@
   &lt;script src="../angularjs-toast.min.js"&gt;&lt;/script&gt;
       </code></pre>
       <p>add the
-        <a href="https://github.com/sibiraj-s/angularjs-toast" target="_blank">angularjsToast</a> dependency to the module</p>
+        <a href="https://github.com/sibiraj-s/angularjs-toast" target="_blank">angularjsToast</a> dependency to the
+        module</p>
       <pre><code class="javascript">
   angular.module('myApp', ['angularjsToast'])
       </code></pre>
@@ -181,8 +186,6 @@
   <script src="./app.js"></script>
   <!-- highlight js -->
   <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <!-- Github buttons -->
-  <script async defer src="https://buttons.github.io/buttons.js"></script>
   <script>
     hljs.initHighlightingOnLoad();
   </script>

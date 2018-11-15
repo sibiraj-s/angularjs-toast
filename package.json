@@ -2,6 +2,12 @@
   "name": "angularjs-toast",
   "version": "2.0.2",
   "description": "A Simple toast notification service for AngularJS pages",
+  "author": "sibiraj-s",
+  "license": "MIT",
+  "private": true,
+  "repository": "https://github.com/sibiraj-s/angularjs-toast.git",
+  "bugs": "https://github.com/sibiraj-s/angularjs-toast/issues",
+  "homepage": "https://github.com/sibiraj-s/angularjs-toast#readme",
   "scripts": {
     "build": "grunt build",
     "start": "grunt serve",
@@ -22,17 +28,6 @@
     "angularjs-toast",
     "toast-notification"
   ],
-  "author": "sibiraj-s",
-  "license": "MIT",
-  "private": true,
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/sibiraj-s/angularjs-toast.git"
-  },
-  "bugs": {
-    "url": "https://github.com/sibiraj-s/angularjs-toast/issues"
-  },
-  "homepage": "https://github.com/sibiraj-s/angularjs-toast#readme",
   "devDependencies": {
     "angular": "^1.7.4",
     "angular-animate": "^1.7.4",

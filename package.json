@@ -8,6 +8,9 @@
   "repository": "https://github.com/sibiraj-s/angularjs-toast.git",
   "bugs": "https://github.com/sibiraj-s/angularjs-toast/issues",
   "homepage": "https://github.com/sibiraj-s/angularjs-toast#readme",
+  "engines": {
+    "node": "^10"
+  },
   "scripts": {
     "build": "grunt build",
     "start": "grunt serve",

@@ -19,15 +19,15 @@ or use cdn
 **Minified:**
 
 ```bash
-//unpkg.com/angularjs-toast@latest/angularjs-toast.min.js
-//unpkg.com/angularjs-toast@latest/angularjs-toast.min.css
+//cdn.jsdelivr.net/npm/angularjs-toast@latest/angularjs-toast.min.js
+//cdn.jsdelivr.net/npm/angularjs-toast@latest/angularjs-toast.min.css
 ```
 
 **Pretty Printed:**
 
 ```bash
-//unpkg.com/angularjs-toast@latest/angularjs-toast.js
-//unpkg.com/angularjs-toast@latest/angularjs-toast.css
+//cdn.jsdelivr.net/npm/angularjs-toast@latest/angularjs-toast.js
+//cdn.jsdelivr.net/npm/angularjs-toast@latest/angularjs-toast.css
 ```
 
 or

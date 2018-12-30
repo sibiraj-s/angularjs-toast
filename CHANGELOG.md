@@ -7,9 +7,29 @@ All notable changes to this project will be documented in this file.
 > - Bug Fixes
 > - Performance Improvements
 > - Dependency Updates
+> - Enhancements
 > - Breaking Changes
 > - Documentation
 > - Internal
+
+## v2.0.3 (2018-12-30)
+
+#### Enhancements
+
+- migrate from `unpkg` cdn to `jsdelivr` ([41e42bc](https://github.com/sibiraj-s/angularjs-toast/commit/41e42bc))
+
+#### Internal
+
+- extend package license to 2019 ([db6ee74](https://github.com/sibiraj-s/angularjs-toast/commit/db6ee74))
+- replace `eslint-config-standard` with `eslint-config-airbnb-base` ([902e33e](https://github.com/sibiraj-s/angularjs-toast/commit/902e33e))
+- replace `grunt-contrib-sass` with `grunt-sass` ([902e33e](https://github.com/sibiraj-s/angularjs-toast/commit/902e33e))
+
+#### Dependency Updates
+
+- update eslint to v5.11.1 ([902e33e](https://github.com/sibiraj-s/angularjs-toast/commit/902e33e))
+- update husky to v1.3.1 ([902e33e](https://github.com/sibiraj-s/angularjs-toast/commit/902e33e))
+- update grunt-coffeelintr to v1.1.2 ([902e33e](https://github.com/sibiraj-s/angularjs-toast/commit/902e33e))
+- update other angular dependencies ([902e33e](https://github.com/sibiraj-s/angularjs-toast/commit/902e33e))
 
 ## v2.0.2 (2018-10-04)
 
@@ -20,7 +40,7 @@ All notable changes to this project will be documented in this file.
 #### Internal
 
 - update github username ([05ea495](https://github.com/sibiraj-s/angularjs-toast/commit/05ea495))
-- remove vscode settings in favour of editor config ([f867985](https://github.com/sibiraj-s/angularjs-toast/commit/f867985))
+- remove vscode settings in favour of editorconfig ([f867985](https://github.com/sibiraj-s/angularjs-toast/commit/f867985))
 
 ## v2.0.1 (2018-09-17)
 

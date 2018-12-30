@@ -1,5 +1,7 @@
 'use strict'
 
+dartSass = require('sass')
+
 banner = '/*!\n * @module <%= pkg.name %>\n' +
   ' * @description <%= pkg.description %>\n' +
   ' * @version v<%= pkg.version %>\n' +
@@ -30,6 +32,7 @@ module.exports = (grunt) ->
 
     sass:
       options:
+        implementation: dartSass
         sourcemap: 'none'
         style: 'expanded'
       demo:
@@ -104,7 +107,7 @@ module.exports = (grunt) ->
 
   # Grunt task(s).
   grunt.registerTask 'default', ['coffeelintr', 'coffee', 'ngAnnotate']
-  grunt.registerTask 'serve', ['connect']
+  grunt.registerTask 'serve', ['sass', 'connect']
   grunt.registerTask 'lint', ['coffeelintr', 'eslint']
   grunt.registerTask 'develop', ['default', 'watch']
   grunt.registerTask 'build', ['default', 'ngAnnotate', 'sass', 'concat', 'uglify', 'cssmin']

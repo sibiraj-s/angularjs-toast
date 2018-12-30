@@ -1,23 +1,19 @@
-'use strict';
+const app = angular.module('myApp', ['angularjsToast']);
 
-var app = angular.module('myApp', ['angularjsToast']);
-
-app.controller('mainController', ['$scope', 'toast', function ($scope, toast) {
-  var array = [
+app.controller('mainController', ['$scope', 'toast', ($scope, toast) => {
+  const array = [
     'Lorem ispsum',
     'Lorem ipsum dolor cadet',
     'angularjs-toast',
     'a simple toast message',
-    'another simple toast message'
+    'another simple toast message',
   ];
 
   $scope.dismiss = false;
 
-  function random () {
-    return array[Math.floor(Math.random() * array.length)];
-  }
+  const random = () => array[Math.floor(Math.random() * array.length)];
 
-  $scope.toast = function (cls) {
+  $scope.toast = (cls) => {
     toast({
       masterClass: 'masterClass',
       className: cls,
@@ -26,7 +22,7 @@ app.controller('mainController', ['$scope', 'toast', function ($scope, toast) {
       position: 'left',
       container: '#appendAlert',
       maxToast: 4,
-      insertFromTop: true
+      insertFromTop: true,
     });
 
     $scope.dismiss = true;

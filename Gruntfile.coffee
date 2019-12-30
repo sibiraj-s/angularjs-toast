@@ -67,14 +67,6 @@ module.exports = (grunt) ->
         files:
           'dist/angularjs-toast.min.js': ['dist/angularjs-toast.js']
 
-    ngAnnotate:
-      options:
-        singleQuotes: true
-
-      angularjsToast:
-        files:
-          'dist/angularjs-toast.js': ['dist/angularjs-toast.js']
-
     browserSync:
       bsFiles:
         src: [
@@ -107,6 +99,6 @@ module.exports = (grunt) ->
   grunt.registerTask 'default', ['coffee']
   grunt.registerTask 'serve', ['default', 'browserSync', 'watch']
   grunt.registerTask 'lint', ['coffeelintr', 'eslint']
-  grunt.registerTask 'build', ['default', 'ngAnnotate', 'sass', 'concat', 'uglify', 'cssmin']
+  grunt.registerTask 'build', ['default', 'sass', 'concat', 'uglify', 'cssmin']
 
   return

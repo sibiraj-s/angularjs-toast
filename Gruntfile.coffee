@@ -1,6 +1,5 @@
-'use strict'
-
-dartSass = require('sass')
+dartSass = require 'sass'
+loadGruntTasks = require 'load-grunt-tasks'
 
 banner = '/*!\n * @module <%= pkg.name %>\n' +
   ' * @description <%= pkg.description %>\n' +
@@ -10,10 +9,10 @@ banner = '/*!\n * @module <%= pkg.name %>\n' +
   ' */\n\n';
 
 module.exports = (grunt) ->
-  require('load-grunt-tasks')(grunt)
+  loadGruntTasks(grunt)
 
   grunt.initConfig
-    pkg: grunt.file.readJSON('package.json')
+    pkg: grunt.file.readJSON 'package.json'
 
     coffeelintr:
       options:

@@ -75,41 +75,38 @@ module.exports = (grunt) ->
         files:
           'dist/angularjs-toast.js': ['dist/angularjs-toast.js']
 
-    connect:
-      server:
-        options:
-          base: './'
-          hostname: 'localhost'
-          open: true
-          keepalive: true
-          livereload: true
+    browserSync:
+      bsFiles:
+        src: [
+          'docs/*.css',
+          'docs/**/*.html',
+          'docs/*.js',
+          'dist/*.js'
+        ]
+      options:
+        watchTask: true
+        open: false
+        server:
+          baseDir: 'docs'
+          routes:
+            '/dist': 'dist'
+        rewriteRules: [{
+          match: '//cdn.jsdelivr.net/npm/angularjs-toast@latest/angularjs-toast.min.js',
+          replace: '/dist/angularjs-toast.js',
+        }]
 
     watch:
       coffeescript:
         files: ['src/*.coffee']
         tasks: ['default']
-      scripts:
-        files: ['docs/**/*.js', 'dist/**/*.js']
-        options:
-          livereload: true
       sass:
         files: ['src/**/*.scss', 'docs/**/*.scss']
         tasks: ['sass']
-      css:
-        files: ['docs/**/*.css', 'dist/**/*.css']
-        options:
-          livereload: true
-      html:
-        files: ['docs/**/*.html']
-        options:
-          livereload: true
-
 
   # Grunt task(s).
-  grunt.registerTask 'default', ['coffeelintr', 'coffee', 'ngAnnotate']
-  grunt.registerTask 'serve', ['sass', 'connect']
+  grunt.registerTask 'default', ['coffee']
+  grunt.registerTask 'serve', ['default', 'browserSync', 'watch']
   grunt.registerTask 'lint', ['coffeelintr', 'eslint']
-  grunt.registerTask 'develop', ['default', 'watch']
   grunt.registerTask 'build', ['default', 'ngAnnotate', 'sass', 'concat', 'uglify', 'cssmin']
 
   return

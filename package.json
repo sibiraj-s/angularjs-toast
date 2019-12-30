@@ -13,9 +13,8 @@
   },
   "scripts": {
     "build": "grunt build",
-    "start": "grunt serve",
+    "serve": "grunt serve",
     "test": "npm run lint",
-    "develop": "grunt develop",
     "lint": "grunt lint",
     "postbuild": "sh ./scripts/postbuild.sh",
     "prebuild": "sh ./scripts/prebuild.sh",
@@ -40,10 +39,10 @@
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.19.1",
     "grunt": "^1.0.4",
+    "grunt-browser-sync": "^2.2.0",
     "grunt-coffeelintr": "^1.1.4",
     "grunt-contrib-coffee": "^2.1.0",
     "grunt-contrib-concat": "^1.0.1",
-    "grunt-contrib-connect": "^2.1.0",
     "grunt-contrib-cssmin": "^3.0.0",
     "grunt-contrib-uglify": "^4.0.1",
     "grunt-contrib-watch": "^1.1.0",
@@ -53,10 +52,5 @@
     "husky": "^3.1.0",
     "load-grunt-tasks": "^5.1.0",
     "sass": "^1.24.0"
-  },
-  "peerDependencies": {
-    "angular": ">=1.7.0",
-    "angular-animate": ">=1.7.0",
-    "angular-sanitize": ">=1.7.0"
   }
 }

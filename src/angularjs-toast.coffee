@@ -1,6 +1,24 @@
 'use strict'
 
-$toast = ($rootScope, $http, $templateCache, $compile, $timeout) ->
+$toastProvider = ->
+  defaultOptions =
+    container: document.querySelector('body')
+    duration: 5 * 1000
+    dismissible: true
+    maxToast: 7
+    position: 'right'
+    toastClass: 'alert-success'
+
+  options = defaultOptions
+
+  configure: (c) ->
+    options = Object.assign {}, defaultOptions, c
+    return
+
+  $get: ->
+    return options
+
+$toastFactory = ($rootScope, $http, $templateCache, $compile, $timeout, toastProvider) ->
   # template
   templateBase = './angularjs-toast.html'
 
@@ -16,7 +34,7 @@ $toast = ($rootScope, $http, $templateCache, $compile, $timeout) ->
   '          aria-label="close"'+
   '          title="close"' +
   '          ng-click="$close($index, data.id)"'+
-  '          ng-if="$dismissible"' +
+  '          ng-if="data.dismissible"' +
   '          >×</a' +
   '        >' +
   '      </div>' +
@@ -27,13 +45,8 @@ $toast = ($rootScope, $http, $templateCache, $compile, $timeout) ->
   # put html into template cache
   $templateCache.put(templateBase, html)
 
-  # default params
-  container = document.querySelector('body')
-  duration = 5000
-  dismissible = true
-  maxToast = 6
-  position = 'right'
-  toastClass = 'alert-success'
+  # default options
+  options = toastProvider
 
   # scope defaults
   scope = $rootScope.$new()
@@ -49,22 +62,20 @@ $toast = ($rootScope, $http, $templateCache, $compile, $timeout) ->
   toast = (args) ->
 
     if not args.message
-      throw new Error "Invalid Message."
+      throw new Error "Toast message is required..."
 
     # user parameters
-    args.duration = args.duration or duration
-    args.maxToast = args.maxToast or maxToast
+    args.duration = args.duration or options.duration
     args.insertFromTop = args.insertFromTop or false
     args.removeFromTop = args.removeFromTop or false
-    args.container = args.container or container
+    args.container = args.container or options.container
+    args.dismissible = if args.dismissible isnt undefined then args.dismissible else options.dismissible
 
     # values that bind to HTML
-    scope.$position = args.position or position
-    scope.$toastPlace = if args.container is container then true else false
+    scope.$position = args.position or options.position
+    scope.$toastPlace = if args.container is options.container then true else false
     scope.$containerClass = args.containerClass or ''
-    scope.$toastClass = args.className or toastClass
-    scope.$dismissible = if args.dismissible isnt undefined then args.dismissible else dismissible
-    scope.$message = args.message
+    scope.$toastClass = args.className or options.toastClass
 
     # check if templates are present in the body
     # append to body
@@ -104,6 +115,7 @@ $toast = ($rootScope, $http, $templateCache, $compile, $timeout) ->
     # append inputs to json variable
     # this will be pushed to the ->scope.$toastMessages array
     json =
+      dismissible: args.dismissible
       message: args.message
       id: "#{new Date().getUTCMilliseconds()}-#{Math.floor((Math.random() * 100) + 1)}"
 
@@ -123,8 +135,7 @@ $toast = ($rootScope, $http, $templateCache, $compile, $timeout) ->
       return
 
     # remove last/ first element from ->scope.$toastMessages when the maxlength is reached
-    # default maxlength is 6
-    if scope.$toastMessages.length is args.maxToast
+    if scope.$toastMessages.length is options.maxToast
       if args.removeFromTop then scope.$toastMessages.shift() else scope.$toastMessages.pop()
       pushToArray()
     else
@@ -132,7 +143,8 @@ $toast = ($rootScope, $http, $templateCache, $compile, $timeout) ->
 
     return
 
-$toast.$inject = ['$rootScope', '$http', '$templateCache', '$compile', '$timeout']
+$toastFactory.$inject = ['$rootScope', '$http', '$templateCache', '$compile', '$timeout', '$toast']
 
 angular.module 'angularjsToast', ['ngSanitize', 'ngAnimate']
-  .factory 'toast', $toast
+  .provider '$toast', $toastProvider
+  .factory 'toast', $toastFactory

@@ -5,7 +5,7 @@ $toast = ($rootScope, $http, $templateCache, $compile, $timeout) ->
   templateBase = './angularjs-toast.html'
 
   html = '<div class="angularjs-toast" ng-class="$toastPlace ? \'position-fixed\' : \'position-relative\'">' +
-  '  <ul class="toast-container" ng-class="[$position, $masterClass]">' +
+  '  <ul class="toast-container" ng-class="[$position, $containerClass]">' +
   '    <li class="animate-repeat" ng-repeat="data in $toastMessages track by data.id">' +
   '      <div class="alert alert-dismissible" ng-class="::$toastClass">'  +
   '        <span ng-bind-html="data.message"></span>' +
@@ -53,7 +53,7 @@ $toast = ($rootScope, $http, $templateCache, $compile, $timeout) ->
     # values that bind to HTML
     scope.$position = if args.position then args.position else position
     scope.$toastPlace = if args.container is container then true else false
-    scope.$masterClass = if args.masterClass then args.masterClass else ''
+    scope.$containerClass = if args.containerClass then args.containerClass else ''
     scope.$toastClass = if args.className then args.className else toastClass
     scope.$dismissible = if args.dismissible then args.dismissible else dismissible
     scope.$message = if args.message then args.message else emptyMessage

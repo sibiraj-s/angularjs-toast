@@ -15,7 +15,7 @@ app.controller('mainController', ['$scope', 'toast', ($scope, toast) => {
 
   $scope.toast = (cls) => {
     toast({
-      masterClass: 'masterClass',
+      containerClass: 'toast-wrapper',
       className: cls,
       duration: 5 * 1000,
       message: random(),

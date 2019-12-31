@@ -2,17 +2,26 @@
 
 $toast = ($rootScope, $http, $templateCache, $compile, $timeout) ->
   # template
-  templateBase = 'angularjs-toast.html'
+  templateBase = './angularjs-toast.html'
 
-  html = '<div class="angularjs-toast" ng-class="$toastPlace ? \'position-fixed\' : \'position-relative\'">'+
-  '  <ul class="toast-container" ng-class="[$position, $masterClass]">'+
-  '    <li class="animate-repeat" ng-repeat="data in $toastMessages track by data.id">'+
-  '      <div class="alert alert-dismissible" ng-class="::$toastClass">'+
-  '        <span ng-bind-html="data.message"></span>'+
-  '        <a href="javascript:void(0)" class="close" data-dismiss="alert" aria-label="close" title="close" ng-click="$close($index)" ng-if="$dismissible">×</a>'+
-  '      </div>'+
-  '    </li>'+
-  '  </ul>'+
+  html = '<div class="angularjs-toast" ng-class="$toastPlace ? \'position-fixed\' : \'position-relative\'">' +
+  '  <ul class="toast-container" ng-class="[$position, $masterClass]">' +
+  '    <li class="animate-repeat" ng-repeat="data in $toastMessages track by data.id">' +
+  '      <div class="alert alert-dismissible" ng-class="::$toastClass">'  +
+  '        <span ng-bind-html="data.message"></span>' +
+  '        <a' +
+  '          href="javascript:void(0)"' +
+  '          class="close"' +
+  '          data-dismiss="alert"' +
+  '          aria-label="close"'+
+  '          title="close"' +
+  '          ng-click="$close($index)"'+
+  '          ng-if="$dismissible"' +
+  '          >×</a' +
+  '        >' +
+  '      </div>' +
+  '    </li>' +
+  '  </ul>' +
   '</div>'
 
   # put html into template cache
@@ -88,6 +97,12 @@ $toast = ($rootScope, $http, $templateCache, $compile, $timeout) ->
       timeout(json)
       return
 
+    # close selected element
+    # remove ->$index element from ->scope.toastMessages
+    scope.$close = (index) ->
+      scope.$toastMessages.splice(index, 1)
+      return
+
     # remove last/ first element from ->scope.$toastMessages when the maxlength is reached
     # default maxlength is 6
     if scope.$toastMessages.length is args.maxToast
@@ -96,11 +111,6 @@ $toast = ($rootScope, $http, $templateCache, $compile, $timeout) ->
     else
       pushToArray()
 
-    # close selected element
-    # remove ->$index element from ->scope.toastMessages
-    scope.$close = (index) ->
-      scope.$toastMessages.splice(index, 1)
-      return
     return
 
 $toast.$inject = ['$rootScope', '$http', '$templateCache', '$compile', '$timeout']

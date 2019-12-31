@@ -15,7 +15,7 @@ $toast = ($rootScope, $http, $templateCache, $compile, $timeout) ->
   '          data-dismiss="alert"' +
   '          aria-label="close"'+
   '          title="close"' +
-  '          ng-click="$close($index)"'+
+  '          ng-click="$close($index, data.id)"'+
   '          ng-if="$dismissible"' +
   '          >×</a' +
   '        >' +
@@ -39,6 +39,12 @@ $toast = ($rootScope, $http, $templateCache, $compile, $timeout) ->
   # scope defaults
   scope = $rootScope.$new()
   scope.$toastMessages = []
+
+  timeoutPromises = {}
+
+  cleanupToastContainer = ->
+    if scope.$toastMessages.length is 0
+      angular.element(document.querySelector('.angularjs-toast')).remove()
 
   # toast function
   toast = (args) ->
@@ -76,12 +82,14 @@ $toast = ($rootScope, $http, $templateCache, $compile, $timeout) ->
           return
 
     # remove element besed on time interval ->args.duration
-    timeout = (element) ->
-      $timeout ->
-        index = scope.$toastMessages.indexOf(element)
+    timeout = (msgObj) ->
+      timeoutPromises[msgObj.id] = $timeout ->
+        index = scope.$toastMessages.indexOf(msgObj)
         if index isnt -1
           scope.$toastMessages.splice(index, 1)
-          return
+
+        cleanupToastContainer()
+        return
       , args.duration
       return
 
@@ -99,8 +107,11 @@ $toast = ($rootScope, $http, $templateCache, $compile, $timeout) ->
 
     # close selected element
     # remove ->$index element from ->scope.toastMessages
-    scope.$close = (index) ->
+    scope.$close = (index, id) ->
+      $timeout.cancel timeoutPromises[id]
+      delete timeoutPromises[id]
       scope.$toastMessages.splice(index, 1)
+      cleanupToastContainer()
       return
 
     # remove last/ first element from ->scope.$toastMessages when the maxlength is reached

@@ -19,9 +19,6 @@ module.exports = (grunt) ->
         configFile: 'coffeelint.json'
       source: ['src/angularjs-toast.coffee', 'Gruntfile.coffee']
 
-    eslint:
-      target: ['docs/**/*.js', 'scripts/**/*.js']
-
     coffee:
       compileJoined:
         options:
@@ -97,7 +94,6 @@ module.exports = (grunt) ->
   # Grunt task(s).
   grunt.registerTask 'default', ['coffee']
   grunt.registerTask 'serve', ['default', 'browserSync', 'watch']
-  grunt.registerTask 'lint', ['coffeelintr', 'eslint']
   grunt.registerTask 'build', ['default', 'sass', 'concat', 'uglify', 'cssmin']
 
   return

@@ -52,17 +52,17 @@ $toast = ($rootScope, $http, $templateCache, $compile, $timeout) ->
       throw new Error "Invalid Message."
 
     # user parameters
-    args.duration = if args.duration then args.duration else duration
-    args.maxToast = if args.maxToast then args.maxToast else maxToast
-    args.insertFromTop = if args.insertFromTop then args.insertFromTop else false
-    args.removeFromTop = if args.removeFromTop then args.removeFromTop else false
-    args.container = if args.container then args.container else container
+    args.duration = args.duration or duration
+    args.maxToast = args.maxToast or maxToast
+    args.insertFromTop = args.insertFromTop or false
+    args.removeFromTop = args.removeFromTop or false
+    args.container = args.container or container
 
     # values that bind to HTML
-    scope.$position = if args.position then args.position else position
+    scope.$position = args.position or position
     scope.$toastPlace = if args.container is container then true else false
-    scope.$containerClass = if args.containerClass then args.containerClass else ''
-    scope.$toastClass = if args.className then args.className else toastClass
+    scope.$containerClass = args.containerClass or ''
+    scope.$toastClass = args.className or toastClass
     scope.$dismissible = if args.dismissible isnt undefined then args.dismissible else dismissible
     scope.$message = args.message
 

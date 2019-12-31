@@ -2,49 +2,48 @@
 <html ng-app="myApp" ng-strict-di>
 
 <head>
-  <base href="angularjs-toast">
-  <meta charset="utf-8">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <base href="angularjs-toast" />
+  <meta charset="utf-8" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <title>AngularJS Toast</title>
-  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.13.1/build/styles/atom-one-dark.min.css">
-  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/angularjs-toast@latest/angularjs-toast.min.css">
-  <link rel="stylesheet" type="text/css" href="./style.css">
+  <link rel="stylesheet" type="text/css"
+    href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.13.1/build/styles/atom-one-dark.min.css" />
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/angularjs-toast@latest/angularjs-toast.min.css" />
+  <link rel="stylesheet" type="text/css" href="./style.css" />
 </head>
 
 <body ng-controller="mainController">
   <div class="contain">
     <div class="col40">
       <div id="github-badges">
-        <a href="https://github.com/sibiraj-s/angularjs-toast/fork" aria-label="Fork sibiraj-s/angularjs-toast on GitHub"
-          target="_blank">
-          <img src="https://img.shields.io/badge/Fork----.svg?style=social&label=Fork&logo=git" alt="Follow @sibiraj-s">
+        <a href="https://github.com/sibiraj-s/angularjs-toast/fork"
+          aria-label="Fork sibiraj-s/angularjs-toast on GitHub" target="_blank">
+          <img src="https://img.shields.io/badge/Fork----.svg?style=social&label=Fork&logo=git"
+            alt="Follow @sibiraj-s" />
         </a>
         <a href="https://github.com/sibiraj-s" aria-label="Follow @sibiraj-s on GitHub" target="_blank">
-          <img src="https://img.shields.io/github/followers/sibiraj-s.svg?style=social&label=Follow @sibiraj-s" alt="Fork">
+          <img src="https://img.shields.io/github/followers/sibiraj-s.svg?style=social&label=Follow @sibiraj-s"
+            alt="Fork" />
         </a>
       </div>
-      <br>
+      <br />
       <h3>angularjs-toast demo</h3>
       <p>angularjs-toast is a simple service for creating toast notification for AngularJS pages</p>
-      <hr>
+      <hr />
       <p>Sample alerts. Click on any following buttons to see toasts in action</p>
       <p>Here it is configured to display inside container using `container` propery</p>
-      <br>
+      <br />
       <button class="btn btn-success" ng-click="toast('alert-success')">Success</button>
       <button class="btn btn-warning" ng-click="toast('alert-warning')">Warning</button>
       <button class="btn btn-danger" ng-click="toast('alert-danger')">Danger</button>
       <button class="btn btn-info" ng-click="toast('alert-info')">Info</button>
       <div id="appendAlert">
         <div class="col-md-11 no-pl" ng-if="!dismiss">
-          <br>
-          <div class="alert alert-success">
-            <strong>Success!</strong> Indicates a successful or positive action.
-          </div>
+          <br />
+          <div class="alert alert-success"><strong>Success!</strong> Indicates a successful or positive action.</div>
 
-          <div class="alert alert-info">
-            <strong>Info!</strong> Indicates a neutral informative change or action.
-          </div>
+          <div class="alert alert-info"><strong>Info!</strong> Indicates a neutral informative change or action.</div>
 
           <div class="alert alert-warning">
             <strong>Warning!</strong> Indicates a warning that might need attention.
@@ -57,9 +56,10 @@
       </div>
     </div>
     <div class="col60">
-      <h2>angularjs-toast
+      <h2>
+        angularjs-toast
         <a href="https://www.npmjs.com/package/angularjs-toast">
-          <img alt="npm version" src="https://img.shields.io/npm/v/angularjs-toast.svg">
+          <img alt="npm version" src="https://img.shields.io/npm/v/angularjs-toast.svg" />
         </a>
       </h2>
       <h3>Installation</h3>
@@ -70,9 +70,12 @@
   yarn add angularjs-toast
   </code></pre>
       <h3>Usage</h3>
-      <p> import the modules required for angularjs-toast. It is necessary to include
+      <p>
+        import the modules required for angularjs-toast. It is necessary to include
         <a href="https://docs.angularjs.org/api/ngSanitize" target="_blank">ngSanitize</a> and
-        <a href="https://docs.angularjs.org/guide/animations" target="_blank">ngAnimate</a> for angularjs-toast to work</p>
+        <a href="https://docs.angularjs.org/guide/animations" target="_blank">ngAnimate</a> for angularjs-toast to
+        work
+      </p>
       <pre><code class="html">
   &lt;link rel="stylesheet" href="../angularjs-toast.min.css"&gt;
 
@@ -81,9 +84,10 @@
   &lt;script src="angular-animate/angular-animate.min.js"&gt;&lt;/script&gt;
   &lt;script src="../angularjs-toast.min.js"&gt;&lt;/script&gt;
       </code></pre>
-      <p>add the
-        <a href="https://github.com/sibiraj-s/angularjs-toast" target="_blank">angularjsToast</a> dependency to the
-        module</p>
+      <p>
+        add the <a href="https://github.com/sibiraj-s/angularjs-toast" target="_blank">angularjsToast</a> dependency
+        to the module
+      </p>
       <pre><code class="javascript">
   angular.module('myApp', ['angularjsToast'])
       </code></pre>
@@ -131,7 +135,7 @@
             <td>container</td>
             <td>string</td>
             <td>body</td>
-            <td>appends alert to the specific class or id or element. inputs should be like '.class' or '#id' </td>
+            <td>appends alert to the specific class or id or element. inputs should be like '.class' or '#id'</td>
           </tr>
           <tr>
             <td>masterClass</td>
@@ -143,7 +147,7 @@
             <td>message</td>
             <td>html-string or string</td>
             <td>Hi there!</td>
-            <td>can be HTML or plain string </td>
+            <td>can be HTML or plain string</td>
           </tr>
           <tr>
             <td>dismissible</td>
@@ -155,7 +159,9 @@
             <td>maxToast</td>
             <td>number</td>
             <td>6</td>
-            <td>maximum number of toast messages to show. if max reached the element inserted first will be removed</td>
+            <td>
+              maximum number of toast messages to show. if max reached the element inserted first will be removed
+            </td>
           </tr>
           <tr>
             <td>insertFromTop</td>
@@ -171,7 +177,7 @@
           </tr>
         </tbody>
       </table>
-      <hr>
+      <hr />
     </div>
   </div>
 

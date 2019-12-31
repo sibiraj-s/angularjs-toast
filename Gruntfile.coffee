@@ -57,7 +57,7 @@ module.exports = (grunt) ->
       demo:
         files:
           'docs/style.css': 'docs/style.scss'
-      dist:
+      lib:
         files:
           'dist/angularjs-toast.css': 'src/angularjs-toast.scss'
 
@@ -92,7 +92,8 @@ module.exports = (grunt) ->
           'docs/*.css',
           'docs/**/*.html',
           'docs/*.js',
-          'dist/*.js'
+          'dist/*.js',
+          'dist/*.css'
         ]
       options:
         watchTask: true
@@ -104,19 +105,25 @@ module.exports = (grunt) ->
         rewriteRules: [{
           match: '//cdn.jsdelivr.net/npm/angularjs-toast@latest/angularjs-toast.min.js',
           replace: '/dist/angularjs-toast.js',
+        }, {
+          match: '//cdn.jsdelivr.net/npm/angularjs-toast@latest/angularjs-toast.min.css',
+          replace: '/dist/angularjs-toast.css'
         }]
 
     watch:
       coffeescript:
         files: ['src/*.coffee']
         tasks: ['default']
-      sass:
-        files: ['src/**/*.scss', 'docs/**/*.scss']
-        tasks: ['sass']
+      sass_lib:
+        files: ['src/**/*.scss']
+        tasks: ['sass:lib']
+      sass_demo:
+        files: ['docs/**/*.scss']
+        tasks: ['sass:demo']
 
   # Grunt task(s).
-  grunt.registerTask 'default', ['coffee']
+  grunt.registerTask 'default', ['coffee', 'sass:lib']
   grunt.registerTask 'serve', ['default', 'browserSync', 'watch']
-  grunt.registerTask 'build', ['clean', 'default', 'sass', 'concat', 'uglify', 'cssmin', 'copy']
+  grunt.registerTask 'build', ['clean', 'default', 'sass:lib', 'concat', 'uglify', 'cssmin', 'copy']
 
   return

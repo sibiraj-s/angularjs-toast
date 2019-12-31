@@ -2,11 +2,12 @@
 
 $toastProvider = ->
   defaultOptions =
-    container: document.querySelector('body')
+    container: 'body'
     duration: 5 * 1000
     dismissible: true
     maxToast: 7
     position: 'right'
+    containerClass: ''
     toastClass: 'alert-success'
 
   options = defaultOptions
@@ -18,7 +19,7 @@ $toastProvider = ->
   $get: ->
     return options
 
-$toastFactory = ($rootScope, $http, $templateCache, $compile, $timeout, toastProvider) ->
+$toastFactory = ($rootScope, $http, $templateCache, $compile, $timeout, $toast) ->
   # template
   templateBase = './angularjs-toast.html'
 
@@ -46,7 +47,7 @@ $toastFactory = ($rootScope, $http, $templateCache, $compile, $timeout, toastPro
   $templateCache.put(templateBase, html)
 
   # default options
-  options = toastProvider
+  options = $toast
 
   # scope defaults
   scope = $rootScope.$new()
@@ -74,7 +75,7 @@ $toastFactory = ($rootScope, $http, $templateCache, $compile, $timeout, toastPro
     # values that bind to HTML
     scope.$position = args.position or options.position
     scope.$toastPlace = if args.container is options.container then true else false
-    scope.$containerClass = args.containerClass or ''
+    scope.$containerClass = args.containerClass or options.containerClass
     scope.$toastClass = args.className or options.toastClass
 
     # check if templates are present in the body

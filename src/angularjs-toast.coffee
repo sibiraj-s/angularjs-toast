@@ -54,7 +54,7 @@ $toast = ($rootScope, $http, $templateCache, $compile, $timeout) ->
     args.maxToast = if args.maxToast then args.maxToast else maxToast
     args.insertFromTop = if args.insertFromTop then args.insertFromTop else false
     args.removeFromTop = if args.removeFromTop then args.removeFromTop else false
-    args.container = if args.container then document.querySelector(args.container) else container
+    args.container = if args.container then args.container else container
 
     # values that bind to HTML
     scope.$position = if args.position then args.position else position
@@ -78,7 +78,13 @@ $toast = ($rootScope, $http, $templateCache, $compile, $timeout) ->
           # compile the element
           # append default template to the ->templateBase
           templateElement = $compile(response.data)(scope)
-          angular.element(args.container).append templateElement
+
+          if angular.isElement args.container
+            el = args.container
+          else
+            el = document.querySelector(args.container)
+
+          angular.element(el).append templateElement
           return
 
     # remove element besed on time interval ->args.duration

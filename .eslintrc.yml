@@ -14,6 +14,9 @@ rules:
 globals:
   angular: true
 
+parserOptions:
+  ecmaVersion: 10
+
 env:
   node: true
   browser: true

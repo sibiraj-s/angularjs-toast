@@ -26,6 +26,14 @@ module.exports = (grunt) ->
         files:
           'dist/angularjs-toast.js': ['src/angularjs-toast.coffee']
 
+    babel:
+      options:
+        sourceMap: true
+        presets: ['@babel/preset-env']
+      compile:
+        files:
+          'dist/angularjs-toast.js': 'dist/angularjs-toast.js'
+
     clean:
       outDir:
         src: 'dist/'
@@ -124,6 +132,6 @@ module.exports = (grunt) ->
   # Grunt task(s).
   grunt.registerTask 'default', ['coffee', 'sass:lib']
   grunt.registerTask 'serve', ['default', 'browserSync', 'watch']
-  grunt.registerTask 'build', ['clean', 'default', 'sass:lib', 'concat', 'uglify', 'cssmin', 'copy']
+  grunt.registerTask 'build', ['clean', 'default', 'babel', 'sass:lib', 'concat', 'uglify', 'cssmin', 'copy']
 
   return

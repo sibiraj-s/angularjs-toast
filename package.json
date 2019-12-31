@@ -30,6 +30,8 @@
     "toast-notification"
   ],
   "devDependencies": {
+    "@babel/core": "^7.7.7",
+    "@babel/preset-env": "^7.7.7",
     "angular": "^1.7.9",
     "angular-animate": "^1.7.9",
     "angular-sanitize": "^1.7.9",
@@ -38,6 +40,7 @@
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.19.1",
     "grunt": "^1.0.4",
+    "grunt-babel": "^8.0.0",
     "grunt-browser-sync": "^2.2.0",
     "grunt-coffeelintr": "^1.1.4",
     "grunt-contrib-clean": "^2.0.0",

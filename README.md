@@ -1,4 +1,4 @@
-# angularjs-toast [![NPM Version](https://img.shields.io/npm/v/angularjs-toast.svg)](https://www.npmjs.com/package/angularjs-toast) [![Build Status](https://travis-ci.com/sibiraj-s/angularjs-toast.svg?branch=master)](https://travis-ci.com/sibiraj-s/angularjs-toast)
+# angularjs-toast [![NPM Version](https://img.shields.io/npm/v/angularjs-toast.svg)](https://www.npmjs.com/package/angularjs-toast) [![Tests](https://github.com/sibiraj-s/angularjs-toast/workflows/Tests/badge.svg)](https://github.com/sibiraj-s/angularjs-toast/actions)
 
 angularjs-toast is a simple service for creating toast notification for AngularJS pages
 

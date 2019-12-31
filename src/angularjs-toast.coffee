@@ -89,7 +89,7 @@ $toast = ($rootScope, $http, $templateCache, $compile, $timeout) ->
     # this will be pushed to the ->scope.$toastMessages array
     json =
       message: args.message
-      id: new Date().getUTCMilliseconds()
+      id: "#{new Date().getUTCMilliseconds()}-#{Math.floor((Math.random() * 100) + 1)}"
 
     # push elements to array
     pushToArray = ->

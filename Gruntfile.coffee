@@ -26,6 +26,29 @@ module.exports = (grunt) ->
         files:
           'dist/angularjs-toast.js': ['src/angularjs-toast.coffee']
 
+    clean:
+      outDir:
+        src: 'dist/'
+
+    copy:
+      default:
+        expand: true
+        src: ['LICENSE', 'README.md', 'CHANGELOG.md']
+        dest: 'dist/'
+      pkgJson:
+        expand: true
+        src: 'package.json'
+        dest: 'dist/',
+        options:
+          process: (data) ->
+            pkg = JSON.parse(data)
+            pkg.main = 'angularjs-toast.min.js'
+            delete pkg.scripts
+            delete pkg.devDependencies
+            delete pkg.private
+            delete pkg.engines
+            JSON.stringify pkg, null, 2
+
     sass:
       options:
         implementation: dartSass
@@ -94,6 +117,6 @@ module.exports = (grunt) ->
   # Grunt task(s).
   grunt.registerTask 'default', ['coffee']
   grunt.registerTask 'serve', ['default', 'browserSync', 'watch']
-  grunt.registerTask 'build', ['default', 'sass', 'concat', 'uglify', 'cssmin']
+  grunt.registerTask 'build', ['clean', 'default', 'sass', 'concat', 'uglify', 'cssmin', 'copy']
 
   return

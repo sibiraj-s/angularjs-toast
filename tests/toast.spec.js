@@ -2,7 +2,6 @@ angular.module('app', ['ngAnimate', 'ngSanitize', 'angularjsToast']);
 
 describe('angularjs-toast', () => {
   let $rootScope;
-  let $window;
   let toast;
   let $timeout;
   let $verifyNoPendingTasks;
@@ -11,7 +10,6 @@ describe('angularjs-toast', () => {
 
   beforeEach(inject(($injector) => {
     $rootScope = $injector.get('$rootScope');
-    $window = $injector.get('$window');
     $timeout = $injector.get('$timeout');
     $verifyNoPendingTasks = $injector.get('$verifyNoPendingTasks');
 
@@ -35,12 +33,13 @@ describe('angularjs-toast', () => {
 
     $rootScope.$digest();
 
-    const toastContainer = $window.document.querySelector('.angularjs-toast');
-    expect(toastContainer.textContent).toContain('Hi there!');
+    const toastEl = document.querySelector('.angularjs-toast');
+    expect(toastEl.textContent).toContain('Hi there!');
+    expect(toastEl.querySelector('.close')).toBeTruthy();
 
     $timeout.flush();
 
-    expect(toastContainer.textContent).not.toContain('Hi there!');
+    expect(toastEl.textContent).not.toContain('Hi there!');
   });
 
   it('should create toast notification with given classname', () => {
@@ -52,8 +51,8 @@ describe('angularjs-toast', () => {
 
     $rootScope.$digest();
 
-    const toastContainer = $window.document.querySelector('.angularjs-toast');
-    expect(toastContainer.querySelector('.alert-success')).toBeTruthy();
+    const toastEl = document.querySelector('.angularjs-toast');
+    expect(toastEl.querySelector('.alert-success')).toBeTruthy();
   });
 
   it('should remove after given duration', () => {
@@ -65,16 +64,16 @@ describe('angularjs-toast', () => {
 
     $rootScope.$digest();
 
-    const toastContainer = $window.document.querySelector('.angularjs-toast');
-    expect(toastContainer.textContent).toContain('Hi there!');
+    const toastEl = document.querySelector('.angularjs-toast');
+    expect(toastEl.textContent).toContain('Hi there!');
     $timeout.flush(3 * 1000);
-    expect(toastContainer.textContent).toContain('Hi there!');
+    expect(toastEl.textContent).toContain('Hi there!');
     $timeout.flush();
-    expect(toastContainer.textContent).not.toContain('Hi there!');
+    expect(toastEl.textContent).not.toContain('Hi there!');
   });
 
   it('should set the position property correctly', () => {
-    let toastContainer;
+    let toastContainerEl;
 
     toast({
       duration: 1000,
@@ -84,8 +83,8 @@ describe('angularjs-toast', () => {
 
     $rootScope.$digest();
 
-    toastContainer = $window.document.querySelector('.toast-container');
-    expect(toastContainer.className).toContain('right');
+    toastContainerEl = document.querySelector('.toast-container');
+    expect(toastContainerEl.className).toContain('right');
 
     $timeout.flush();
 
@@ -97,14 +96,14 @@ describe('angularjs-toast', () => {
 
     $rootScope.$digest();
 
-    toastContainer = $window.document.querySelector('.toast-container');
-    expect(toastContainer.className).toContain('left');
+    toastContainerEl = document.querySelector('.toast-container');
+    expect(toastContainerEl.className).toContain('left');
   });
 
   it('should append to the given container', () => {
-    const container = $window.document.createElement('div');
+    const container = document.createElement('div');
     container.id = '__toast_container__';
-    $window.document.body.appendChild(container);
+    document.body.appendChild(container);
 
     toast({
       duration: 1000,
@@ -115,9 +114,9 @@ describe('angularjs-toast', () => {
     $rootScope.$digest();
 
     expect(container.querySelector('.angularjs-toast')).toBeTruthy();
-    $window.document.body.removeChild(container);
+    document.body.removeChild(container);
 
-    const container2 = $window.document.createElement('div');
+    const container2 = document.createElement('div');
 
     toast({
       duration: 1000,
@@ -128,5 +127,66 @@ describe('angularjs-toast', () => {
     $rootScope.$digest();
 
     expect(container2.querySelector('.angularjs-toast')).toBeTruthy();
+  });
+
+  it('should add class name to the container', () => {
+    toast({
+      duration: 1000,
+      message: 'Hi there!',
+      containerClass: 'toast-wrapper',
+    });
+
+    $rootScope.$digest();
+
+    const toastContainerEl = document.querySelector('.toast-container');
+    expect(toastContainerEl.className).toContain('toast-wrapper');
+  });
+
+  it('should render with the given message', () => {
+    const message = 'Hello World!';
+    toast({
+      duration: 1000,
+      message,
+      containerClass: 'toast-wrapper',
+    });
+
+    $rootScope.$digest();
+
+    const toastContainerEl = document.querySelector('.toast-container');
+    expect(toastContainerEl.textContent).toContain(message);
+  });
+
+  it('should render muliple toast messages', () => {
+    const message = 'Hello World!';
+    toast({
+      duration: 1000,
+      message,
+    });
+
+    $rootScope.$digest();
+
+    toast({
+      duration: 1000,
+      message,
+    });
+
+    $rootScope.$digest();
+
+    const notificationEl = document.querySelectorAll('.angularjs-toast>ul>li');
+    expect(notificationEl.length).toBe(2);
+  });
+
+  it('should not have close button when dismissable is set to false', () => {
+    const message = 'Hello World!';
+    toast({
+      duration: 1000,
+      message,
+      dismissible: false,
+    });
+
+    $rootScope.$digest();
+
+    const notificationEl = document.querySelector('.angularjs-toast');
+    expect(notificationEl.querySelector('.close')).toBeFalsy();
   });
 });

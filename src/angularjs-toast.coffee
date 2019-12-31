@@ -31,7 +31,6 @@ $toast = ($rootScope, $http, $templateCache, $compile, $timeout) ->
   container = document.querySelector('body')
   duration = 5000
   dismissible = true
-  emptyMessage = "Hi there!"
   maxToast = 6
   position = 'right'
   toastClass = 'alert-success'
@@ -49,6 +48,9 @@ $toast = ($rootScope, $http, $templateCache, $compile, $timeout) ->
   # toast function
   toast = (args) ->
 
+    if not args.message
+      throw new Error "Invalid Message."
+
     # user parameters
     args.duration = if args.duration then args.duration else duration
     args.maxToast = if args.maxToast then args.maxToast else maxToast
@@ -61,8 +63,8 @@ $toast = ($rootScope, $http, $templateCache, $compile, $timeout) ->
     scope.$toastPlace = if args.container is container then true else false
     scope.$containerClass = if args.containerClass then args.containerClass else ''
     scope.$toastClass = if args.className then args.className else toastClass
-    scope.$dismissible = if args.dismissible then args.dismissible else dismissible
-    scope.$message = if args.message then args.message else emptyMessage
+    scope.$dismissible = if args.dismissible isnt undefined then args.dismissible else dismissible
+    scope.$message = args.message
 
     # check if templates are present in the body
     # append to body

@@ -1,10 +1,11 @@
-angular.module('app', ['ngAnimate', 'ngSanitize', 'angularjsToast']);
+angular.module('app', ['angularjsToast']);
 
 describe('angularjs-toast', () => {
   let $rootScope;
-  let toast;
   let $timeout;
   let $verifyNoPendingTasks;
+
+  let toast;
 
   beforeEach(module('app'));
 
@@ -17,11 +18,15 @@ describe('angularjs-toast', () => {
   }));
 
   afterEach(() => {
+    // cleanup pending timers
     try {
       $verifyNoPendingTasks('$timeout');
     } catch {
       $timeout.flush();
     }
+
+    // reset template
+    document.body.innerHTML = '';
   });
 
   it('should create toast notification', () => {

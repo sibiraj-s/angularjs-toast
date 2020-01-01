@@ -65,9 +65,28 @@ $toastFactory = ($rootScope, $http, $templateCache, $compile, $timeout, $toast) 
   getToastEl = ->
     document.querySelector('.angularjs-toast')
 
-  cleanupToastContainer = ->
-    if scope.$toastMessages.length is 0
-      angular.element(getToastEl()).remove()
+  # check if templates are present in the body
+  # append to body
+  htmlTemplate = angular.element getToastEl()
+
+  if not htmlTemplate[0]
+    # if the element is not appened to html
+    # get default template from ->templateBase
+    # append to ->options.container
+    $http.get templateBase, {cache: $templateCache}
+      .then (response) ->
+
+        # compile the element
+        # append default template to the ->templateBase
+        templateElement = $compile(response.data)(scope)
+
+        if angular.isElement options.container
+          el = options.container
+        else
+          el = document.querySelector(options.container)
+
+        angular.element(el).append templateElement
+        return
 
   timeoutPromises = {}
   # remove element besed on time interval ->timeout
@@ -76,8 +95,6 @@ $toastFactory = ($rootScope, $http, $templateCache, $compile, $timeout, $toast) 
       index = scope.$toastMessages.indexOf(msgObj)
       if index isnt -1
         scope.$toastMessages.splice(index, 1)
-
-      cleanupToastContainer()
       return
     , timeout
     return
@@ -88,7 +105,6 @@ $toastFactory = ($rootScope, $http, $templateCache, $compile, $timeout, $toast) 
     $timeout.cancel timeoutPromises[id]
     delete timeoutPromises[id]
     scope.$toastMessages.splice(index, 1)
-    cleanupToastContainer()
     return
 
   # toast function
@@ -102,31 +118,6 @@ $toastFactory = ($rootScope, $http, $templateCache, $compile, $timeout, $toast) 
 
     if not message
       throw new Error "Toast message is required..."
-
-    # values that bind to HTML
-
-    # check if templates are present in the body
-    # append to body
-    htmlTemplate = angular.element getToastEl()
-
-    if not htmlTemplate[0]
-      # if the element is not appened to html
-      # get default template from ->templateBase
-      # append to ->options.container
-      $http.get templateBase, {cache: $templateCache}
-        .then (response) ->
-
-          # compile the element
-          # append default template to the ->templateBase
-          templateElement = $compile(response.data)(scope)
-
-          if angular.isElement options.container
-            el = options.container
-          else
-            el = document.querySelector(options.container)
-
-          angular.element(el).append templateElement
-          return
 
     # append inputs to json variable
     # this will be pushed to the ->scope.$toastMessages array

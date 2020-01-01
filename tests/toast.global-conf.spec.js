@@ -36,11 +36,15 @@ describe('angularjs-toast', () => {
   }));
 
   afterEach(() => {
+    // cleanup pending timers
     try {
       $verifyNoPendingTasks('$timeout');
     } catch {
       $timeout.flush();
     }
+
+    // reset template
+    document.body.innerHTML = '';
   });
 
   it(`should have only maximum ${maxToast} toasts`, () => {
@@ -64,10 +68,10 @@ describe('angularjs-toast', () => {
   it(`should remove after ${defaultTimeout} seconds`, () => {
     toast({ message: 'Hi there!' });
     $rootScope.$digest();
-    $timeout.flush(5 * 1000);
+    $timeout.flush(defaultTimeout);
 
-    const toastEl = document.querySelector('.angularjs-toast');
-    expect(toastEl).toBeFalsy();
+    const notificationEl = document.querySelectorAll('.angularjs-toast>ul>li');
+    expect(notificationEl.length).toBe(0);
   });
 
   it('should append to document body', () => {

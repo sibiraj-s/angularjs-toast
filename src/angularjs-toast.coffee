@@ -28,25 +28,25 @@ $toastFactory = ($rootScope, $http, $templateCache, $compile, $timeout, $toast) 
   # template
   templateBase = './angularjs-toast.html'
 
-  html = '<div class="angularjs-toast" ng-class="::$toastPlace ? \'position-fixed\' : \'position-relative\'">' +
-  '  <ul class="toast-container" ng-class="::[$position, $containerClass]">' +
-  '    <li class="animate-repeat" ng-repeat="data in $toastMessages track by data.id">' +
-  '      <div class="alert alert-dismissible" ng-class="::$toastClass">'  +
-  '        <span ng-bind-html="data.message"></span>' +
-  '        <a' +
-  '          href="javascript:void(0)"' +
-  '          class="close"' +
-  '          data-dismiss="alert"' +
+  html = '<div class="angularjs-toast" ng-class="::$toastPlace ? \'position-fixed\' : \'position-relative\'">'+
+  '  <ul class="toast-container" ng-class="::[$position, $containerClass]">'+
+  '    <li class="animate-repeat" ng-repeat="data in $toastMessages track by data.id">'+
+  '      <div class="alert alert-dismissible" ng-class="::data.toastClass">'+
+  '        <span ng-bind-html="::data.message"></span>'+
+  '        <a'+
+  '          href="javascript:void(0)"'+
+  '          class="close"'+
+  '          data-dismiss="alert"'+
   '          aria-label="close"'+
-  '          title="close"' +
+  '          title="close"'+
   '          ng-click="$close($index, data.id)"'+
-  '          ng-if="data.dismissible"' +
-  '          >×</a' +
-  '        >' +
-  '      </div>' +
-  '    </li>' +
-  '  </ul>' +
-  '</div>'
+  '          ng-if="::data.dismissible"'+
+  '          >×</a'+
+  '        >'+
+  '      </div>'+
+  '    </li>'+
+  '  </ul>'+
+  '</div>';
 
   # put html into template cache
   $templateCache.put(templateBase, html)
@@ -56,10 +56,11 @@ $toastFactory = ($rootScope, $http, $templateCache, $compile, $timeout, $toast) 
 
   # scope defaults
   scope = $rootScope.$new()
-  scope.$toastMessages = []
-  scope.$containerClass = options.containerClass
+
   scope.$position = options.position
   scope.$toastPlace = if options.container is 'body' then true else false
+  scope.$containerClass = options.containerClass
+  scope.$toastMessages = []
 
   timeoutPromises = {}
 
@@ -73,12 +74,12 @@ $toastFactory = ($rootScope, $http, $templateCache, $compile, $timeout, $toast) 
     if not args.message
       throw new Error "Toast message is required..."
 
-    # user parameters
+    # user options
     timeout = args.timeout or options.timeout
     dismissible = if args.dismissible isnt undefined then args.dismissible else options.dismissible
+    toastClass = args.className or options.defaultToastClass
 
     # values that bind to HTML
-    scope.$toastClass = args.className or options.defaultToastClass
 
     # check if templates are present in the body
     # append to body
@@ -118,9 +119,10 @@ $toastFactory = ($rootScope, $http, $templateCache, $compile, $timeout, $toast) 
     # append inputs to json variable
     # this will be pushed to the ->scope.$toastMessages array
     json =
-      dismissible: dismissible
       message: args.message
       id: getUniqId()
+      toastClass: toastClass
+      dismissible: dismissible
 
     # push elements to array
     pushToArray = ->

@@ -38,11 +38,11 @@ describe('angularjs-toast', () => {
   });
 
   it('should create toast notification with given classname', () => {
-    toast({ message: 'Hi there!', className: 'alert-success' });
+    toast({ message: 'Hi there!', className: 'alert-danger' });
     $rootScope.$digest();
 
     const toastEl = document.querySelector('.angularjs-toast');
-    expect(toastEl.querySelector('.alert-success')).toBeTruthy();
+    expect(toastEl.querySelector('.alert-danger')).toBeTruthy();
   });
 
   it('should remove notification after given timeout', () => {

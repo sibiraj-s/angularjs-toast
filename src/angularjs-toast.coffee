@@ -1,5 +1,9 @@
 'use strict'
 
+getUniqId = ->
+  s4 = -> (((1+Math.random())*0x10000)|0).toString(16).substring(1)
+  "#{new Date().getTime()}-#{s4()}-#{s4()}-#{s4()}"
+
 $toastProvider = ->
   defaultOptions =
     container: 'body'
@@ -116,7 +120,7 @@ $toastFactory = ($rootScope, $http, $templateCache, $compile, $timeout, $toast) 
     json =
       dismissible: args.dismissible
       message: args.message
-      id: "#{new Date().getUTCMilliseconds()}-#{Math.floor((Math.random() * 100) + 1)}"
+      id: getUniqId()
 
     # push elements to array
     pushToArray = ->

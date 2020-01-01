@@ -68,7 +68,6 @@ $toastFactory = ($rootScope, $http, $templateCache, $compile, $timeout, $toast) 
     # user parameters
     args.duration = args.duration or options.duration
     args.insertFromTop = args.insertFromTop or false
-    args.removeFromTop = args.removeFromTop or false
     args.container = args.container or options.container
     args.dismissible = if args.dismissible isnt undefined then args.dismissible else options.dismissible
 
@@ -137,7 +136,7 @@ $toastFactory = ($rootScope, $http, $templateCache, $compile, $timeout, $toast) 
 
     # remove last/ first element from ->scope.$toastMessages when the maxlength is reached
     if scope.$toastMessages.length is options.maxToast
-      if args.removeFromTop then scope.$toastMessages.shift() else scope.$toastMessages.pop()
+      if not args.insertFromTop then scope.$toastMessages.shift() else scope.$toastMessages.pop()
       pushToArray()
     else
       pushToArray()

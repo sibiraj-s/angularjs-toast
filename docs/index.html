@@ -95,7 +95,7 @@
       <pre><code class="javascript">
   angular.controller('toastController', ['toast', function(toast){
     toast({
-      duration  : 10000,
+      timeout  : 10 * 1000,
       message   : "Hi there!",
       className : "alert-success"
     });
@@ -120,7 +120,7 @@
             <td>accepted values are alert-(success|danger|primary|info)</td>
           </tr>
           <tr>
-            <td>duration</td>
+            <td>timeout</td>
             <td>number</td>
             <td>5000</td>
             <td>timeout for each toast messages to disappear</td>

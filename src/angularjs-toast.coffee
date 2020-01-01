@@ -8,7 +8,7 @@ $toastProvider = ->
   defaultOptions =
     container: 'body'
     defaultToastClass: 'alert-success'
-    duration: 5 * 1000
+    timeout: 5 * 1000
     dismissible: true
     maxToast: 7
     position: 'right'
@@ -74,7 +74,7 @@ $toastFactory = ($rootScope, $http, $templateCache, $compile, $timeout, $toast) 
       throw new Error "Toast message is required..."
 
     # user parameters
-    args.duration = args.duration or options.duration
+    args.timeout = args.timeout or options.timeout
     args.dismissible = if args.dismissible isnt undefined then args.dismissible else options.dismissible
 
     # values that bind to HTML
@@ -103,7 +103,7 @@ $toastFactory = ($rootScope, $http, $templateCache, $compile, $timeout, $toast) 
           angular.element(el).append templateElement
           return
 
-    # remove element besed on time interval ->args.duration
+    # remove element besed on time interval ->args.timeout
     timeout = (msgObj) ->
       timeoutPromises[msgObj.id] = $timeout ->
         index = scope.$toastMessages.indexOf(msgObj)
@@ -112,7 +112,7 @@ $toastFactory = ($rootScope, $http, $templateCache, $compile, $timeout, $toast) 
 
         cleanupToastContainer()
         return
-      , args.duration
+      , args.timeout
       return
 
     # append inputs to json variable

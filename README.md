@@ -68,7 +68,7 @@ angular.controller('toastController', [
   'toast',
   function(toast) {
     toast({
-      duration: 10000,
+      timeout: 10 * 1000,
       message: 'Hi there!',
       className: 'alert-success'
     });
@@ -83,7 +83,7 @@ all options are type sensitive
 | Property    | Type                  | Default       | Description                                             |
 | ----------- | --------------------- | ------------- | ------------------------------------------------------- |
 | className   | string                | alert-success | accepted values are alert-(success/danger/primary/info) |
-| duration    | number                | 5000          | timeout for each toast messages to disappear            |
+| timeout     | number                | 5000          | timeout for each toast messages to disappear            |
 | message     | html-string or string | Hi there!     | can be HTML or plain string                             |
 | dismissible | boolean               | true          | show / hide the close icon.                             |
 
@@ -94,7 +94,7 @@ all options are type sensitive
 | Property          | Type    | Default | Description                                                                                         |
 | ----------------- | ------- | ------- | --------------------------------------------------------------------------------------------------- |
 | maxToast          | number  | 7       | maximum number of toast messages to show. if max reached the element inserted first will be removed |
-| duration          | number  | 5000    | timeout for each toast messages to disappear                                                        |
+| timeout           | number  | 5000    | timeout for each toast messages to disappear                                                        |
 | container         | string  | body    | appends alert to the specific class or id or element. inputs should be like '.class' or '#id'       |
 | containerClass    | string  | "       | adds class to the container for more flexibility in styling                                         |
 | defaultToastClass | string  | "       | adds class to the container for more flexibility in styling                                         |
@@ -106,7 +106,7 @@ all options are type sensitive
 const config = $toastProvider => {
   $toastProvider.configure({
     maxToast: 4,
-    duration: 5 * 1000,
+    timeout: 5 * 1000,
     container: 'body',
     containerClass: 'toast-wrapper',
     defaultToastClass: 'alert-success',

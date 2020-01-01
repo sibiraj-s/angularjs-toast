@@ -45,9 +45,9 @@ describe('angularjs-toast', () => {
     expect(toastEl.querySelector('.alert-success')).toBeTruthy();
   });
 
-  it('should remove after given duration', () => {
-    const duration = 5 * 1000;
-    toast({ duration, message: 'Hi there!' });
+  it('should remove notification after given timeout', () => {
+    const timeout = 5 * 1000;
+    toast({ timeout, message: 'Hi there!' });
     $rootScope.$digest();
 
     const toastEl = document.querySelector('.angularjs-toast');

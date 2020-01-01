@@ -6,7 +6,7 @@ const defaultTimeout = 5 * 1000;
 const config = ($toastProvider) => {
   $toastProvider.configure({
     maxToast,
-    duration: defaultTimeout,
+    timeout: defaultTimeout,
     container: 'body',
     containerClass: 'toast-wrapper',
     defaultToastClass: 'alert-success',

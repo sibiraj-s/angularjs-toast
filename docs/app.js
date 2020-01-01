@@ -23,7 +23,7 @@ const mainController = ($scope, toast) => {
   $scope.toast = (cls) => {
     toast({
       className: cls,
-      duration: 5 * 1000,
+      timeout: 5 * 1000,
       message: random(),
     });
 

@@ -8,11 +8,12 @@ const config = ($toastProvider) => {
 
 const mainController = ($scope, toast) => {
   const array = [
-    'Lorem ispsum',
     'Lorem ipsum dolor cadet',
     'angularjs-toast',
-    'a simple toast message',
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit,',
     'another simple toast message',
+    `Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`,
   ];
 
   $scope.dismiss = false;

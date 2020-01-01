@@ -1,4 +1,4 @@
-# angularjs-toast [![NPM Version](https://img.shields.io/npm/v/angularjs-toast.svg)](https://www.npmjs.com/package/angularjs-toast) [![Tests](https://github.com/sibiraj-s/angularjs-toast/workflows/Tests/badge.svg)](https://github.com/sibiraj-s/angularjs-toast/actions)
+# angularjs-toast [![NPM Version](https://img.shields.io/npm/v/angularjs-toast.svg)](https://www.npmjs.com/package/angularjs-toast) [![Tests](https://github.com/sibiraj-s/angularjs-toast/workflows/Tests/badge.svg)](https://github.com/sibiraj-s/angularjs-toast/actions) [![Jsdelivr](https://data.jsdelivr.com/v1/package/npm/angularjs-toast/badge?style=rounded)](https://www.jsdelivr.com/package/npm/angularjs-toast)
 
 angularjs-toast is a simple service for creating toast notification for AngularJS pages
 
@@ -68,9 +68,8 @@ angular.controller('toastController', [
   'toast',
   function(toast) {
     toast({
-      timeout: 10 * 1000,
-      message: 'Hi there!',
-      className: 'alert-success'
+      timeout: 5 * 1000,
+      message: 'Hi there!'
     });
   }
 ]);
@@ -78,7 +77,14 @@ angular.controller('toastController', [
 
 ### Options
 
-all options are type sensitive
+```js
+toast({
+  timeout: 5 * 1000,
+  message: 'Hi there!',
+  className: 'alert-success',
+  dismissible: true
+});
+```
 
 | Property    | Type                  | Default       | Description                                             |
 | ----------- | --------------------- | ------------- | ------------------------------------------------------- |
@@ -88,19 +94,6 @@ all options are type sensitive
 | dismissible | boolean               | true          | show / hide the close icon.                             |
 
 ### Configure globally
-
-all options are type sensitive
-
-| Property          | Type    | Default | Description                                                                                         |
-| ----------------- | ------- | ------- | --------------------------------------------------------------------------------------------------- |
-| maxToast          | number  | 7       | maximum number of toast messages to show. if max reached the element inserted first will be removed |
-| timeout           | number  | 5000    | timeout for each toast messages to disappear                                                        |
-| container         | string  | body    | appends alert to the specific class or id or element. inputs should be like '.class' or '#id'       |
-| containerClass    | string  | "       | adds class to the container for more flexibility in styling                                         |
-| defaultToastClass | string  | "       | adds class to the container for more flexibility in styling                                         |
-| dismissible       | boolean | true    | show / hide the close icon.                                                                         |
-| insertFromTop     | boolean | false   | setting true will insert new messages on top else inserts at bottom                                 |
-| position          | string  | right   | position of the element can be 'left', 'center' and 'right'                                         |
 
 ```js
 const config = $toastProvider => {
@@ -119,6 +112,17 @@ const config = $toastProvider => {
 config.$inject = ['$toastProvider'];
 app.config(config);
 ```
+
+| Property          | Type    | Default | Description                                                                                         |
+| ----------------- | ------- | ------- | --------------------------------------------------------------------------------------------------- |
+| maxToast          | number  | 7       | maximum number of toast messages to show. if max reached the element inserted first will be removed |
+| timeout           | number  | 5000    | timeout for each toast messages to disappear                                                        |
+| container         | string  | body    | appends alert to the specific class or id or element. inputs should be like '.class' or '#id'       |
+| containerClass    | string  | "       | adds class to the container for more flexibility in styling                                         |
+| defaultToastClass | string  | "       | adds class to the container for more flexibility in styling                                         |
+| dismissible       | boolean | true    | show / hide the close icon.                                                                         |
+| insertFromTop     | boolean | false   | setting true will insert new messages on top else inserts at bottom                                 |
+| position          | string  | right   | position of the element can be 'left', 'center' and 'right'                                         |
 
 [nganimate]: https://docs.angularjs.org/api/ngAnimate
 [ngsanitize]: https://docs.angularjs.org/api/ngSanitize

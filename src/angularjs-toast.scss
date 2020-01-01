@@ -29,7 +29,9 @@
 
         .alert {
           display: inline-block;
-        } // animate while element enters or leaves
+        }
+
+        // animate while element enters or leaves
         &.ng-enter {
           opacity: 0;
           transition: 0.5s ease-in;

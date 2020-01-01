@@ -60,26 +60,26 @@
   }
 
   &.alert-success {
-    color: #3c763d;
-    background-color: #dff0d8;
-    border-color: #d6e9c6;
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
   }
 
   &.alert-info {
-    color: #31708f;
-    background-color: #d9edf7;
-    border-color: #bce8f1;
+    color: #0c5460;
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
   }
 
   &.alert-warning {
-    color: #8a6d3b;
-    background-color: #fcf8e3;
-    border-color: #faebcc;
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba;
   }
 
   &.alert-danger {
-    color: #a94442;
-    background-color: #f2dede;
-    border-color: #ebccd1;
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
   }
 }

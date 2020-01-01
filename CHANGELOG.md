@@ -13,6 +13,12 @@ All notable changes to this project will be documented in this file.
 > - Documentation
 > - Internal
 
+## v3.0.1 (2020-01-02)
+
+#### Enhancements
+
+- render notification template on app load ([f9c057f](https://github.com/sibiraj-s/angularjs-toast/commit/f9c057f))
+
 ## v3.0.0 (2020-01-01)
 
 #### Features

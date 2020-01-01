@@ -74,8 +74,8 @@ $toastFactory = ($rootScope, $http, $templateCache, $compile, $timeout, $toast) 
       throw new Error "Toast message is required..."
 
     # user parameters
-    args.timeout = args.timeout or options.timeout
-    args.dismissible = if args.dismissible isnt undefined then args.dismissible else options.dismissible
+    timeout = args.timeout or options.timeout
+    dismissible = if args.dismissible isnt undefined then args.dismissible else options.dismissible
 
     # values that bind to HTML
     scope.$toastClass = args.className or options.defaultToastClass
@@ -103,8 +103,8 @@ $toastFactory = ($rootScope, $http, $templateCache, $compile, $timeout, $toast) 
           angular.element(el).append templateElement
           return
 
-    # remove element besed on time interval ->args.timeout
-    timeout = (msgObj) ->
+    # remove element besed on time interval ->timeout
+    setNotificationTimer = (msgObj) ->
       timeoutPromises[msgObj.id] = $timeout ->
         index = scope.$toastMessages.indexOf(msgObj)
         if index isnt -1
@@ -112,20 +112,20 @@ $toastFactory = ($rootScope, $http, $templateCache, $compile, $timeout, $toast) 
 
         cleanupToastContainer()
         return
-      , args.timeout
+      , timeout
       return
 
     # append inputs to json variable
     # this will be pushed to the ->scope.$toastMessages array
     json =
-      dismissible: args.dismissible
+      dismissible: dismissible
       message: args.message
       id: getUniqId()
 
     # push elements to array
     pushToArray = ->
       if options.insertFromTop then scope.$toastMessages.unshift(json) else scope.$toastMessages.push(json)
-      timeout(json)
+      setNotificationTimer(json)
       return
 
     # close selected element

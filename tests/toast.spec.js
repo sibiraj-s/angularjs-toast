@@ -26,7 +26,6 @@ describe('angularjs-toast', () => {
 
   it('should create toast notification', () => {
     toast({ message: 'Hi there!' });
-
     $rootScope.$digest();
 
     const toastEl = document.querySelector('.angularjs-toast');
@@ -40,7 +39,6 @@ describe('angularjs-toast', () => {
 
   it('should create toast notification with given classname', () => {
     toast({ message: 'Hi there!', className: 'alert-success' });
-
     $rootScope.$digest();
 
     const toastEl = document.querySelector('.angularjs-toast');
@@ -50,13 +48,14 @@ describe('angularjs-toast', () => {
   it('should remove after given duration', () => {
     const duration = 5 * 1000;
     toast({ duration, message: 'Hi there!' });
-
     $rootScope.$digest();
 
     const toastEl = document.querySelector('.angularjs-toast');
     expect(toastEl.textContent).toContain('Hi there!');
+
     $timeout.flush(3 * 1000);
     expect(toastEl.textContent).toContain('Hi there!');
+
     $timeout.flush();
     expect(toastEl.textContent).not.toContain('Hi there!');
   });
@@ -64,7 +63,6 @@ describe('angularjs-toast', () => {
   it('should render with the given message', () => {
     const message = 'Hello World!';
     toast({ message });
-
     $rootScope.$digest();
 
     const toastContainerEl = document.querySelector('.toast-container');
@@ -74,11 +72,8 @@ describe('angularjs-toast', () => {
   it('should render muliple toast messages', () => {
     const message = 'Hello World!';
     toast({ message });
-
     $rootScope.$digest();
-
     toast({ message });
-
     $rootScope.$digest();
 
     const notificationEl = document.querySelectorAll('.angularjs-toast>ul>li');

@@ -121,6 +121,32 @@ app.config(config);
 | insertFromTop     | boolean | false   | setting true will insert new messages on top else inserts at bottom                                 |
 | position          | string  | right   | position of the element can be 'left', 'center' and 'right'                                         |
 
+### Animations
+
+Default `fadeIn-fadeOut` animation can be overwriten
+
+```scss
+.angularjs-toast {
+  &.ng-enter {
+    opacity: 0;
+    transition: 0.5s ease-in;
+
+    &.ng-enter-active {
+      opacity: 1;
+    }
+  }
+
+  &.ng-leave {
+    opacity: 1;
+    transition: 0.2s ease-in;
+
+    &.ng-leave-active {
+      opacity: 0;
+    }
+  }
+}
+```
+
 [nganimate]: https://docs.angularjs.org/api/ngAnimate
 [ngsanitize]: https://docs.angularjs.org/api/ngSanitize
 [npm]: https://www.npmjs.com/

@@ -3,6 +3,7 @@
 All notable changes to this project will be documented in this file.
 
 > **Tags**
+>
 > - Features
 > - Bug Fixes
 > - Performance Improvements
@@ -11,6 +12,47 @@ All notable changes to this project will be documented in this file.
 > - Breaking Changes
 > - Documentation
 > - Internal
+
+## v3.0.0 (2020-01-01)
+
+#### Features
+
+- support dom element in container property ([ae77178](https://github.com/sibiraj-s/angularjs-toast/commit/ae77178))
+- support global configuration via `$toastProvider` ([24b939f](https://github.com/sibiraj-s/angularjs-toast/commit/24b939f))
+- accept string to create toasts ([e6424ce](https://github.com/sibiraj-s/angularjs-toast/commit/e6424ce))
+
+#### Bug Fixes
+
+- set dismissible property correctly ([86863af](https://github.com/sibiraj-s/angularjs-toast/commit/86863af))
+
+#### Enhancements
+
+- generate more random and uniq id ([f71fc4b](https://github.com/sibiraj-s/angularjs-toast/commit/f71fc4b)), ([67137e0](https://github.com/sibiraj-s/angularjs-toast/commit/67137e0))
+- update alert colors ([eaa66fc](https://github.com/sibiraj-s/angularjs-toast/commit/eaa66fc))
+
+#### Breaking Changes
+
+- rename option `masterClass` to `containerClass` ([0b544c2](https://github.com/sibiraj-s/angularjs-toast/commit/0b544c2))
+- `containerClass`, `insertFromTop`, `container`, `position` has to be globally configured ([9ead276](https://github.com/sibiraj-s/angularjs-toast/commit/9ead276)), ([9b562f4](https://github.com/sibiraj-s/angularjs-toast/commit/9b562f4)), ([c5d3e9d](https://github.com/sibiraj-s/angularjs-toast/commit/c5d3e9d)), ([0d56b84](https://github.com/sibiraj-s/angularjs-toast/commit/0d56b84))
+- `duration` property is renamed to `timeout` ([0392187](https://github.com/sibiraj-s/angularjs-toast/commit/0392187))
+- remove option `removeFromTop` ([91414ba](https://github.com/sibiraj-s/angularjs-toast/commit/91414ba))
+
+#### Internal
+
+- use browser-sync for local server ([5e4cccb](https://github.com/sibiraj-s/angularjs-toast/commit/5e4cccb))
+- remove grunt-ng-annotate ([53c44b2](https://github.com/sibiraj-s/angularjs-toast/commit/53c44b2))
+- update node version requirement ([47c7be2](https://github.com/sibiraj-s/angularjs-toast/commit/47c7be2))
+- remove grunt-eslint in favour of eslint ([d9c17f1](https://github.com/sibiraj-s/angularjs-toast/commit/d9c17f1))
+- cleanup build tasks ([a6325ba](https://github.com/sibiraj-s/angularjs-toast/commit/a6325ba))
+- setup babel compilation ([3ad387c](https://github.com/sibiraj-s/angularjs-toast/commit/3ad387c))
+- setup karma-jasmine unit tests ([d416e75](https://github.com/sibiraj-s/angularjs-toast/commit/d416e75))
+- migrate to github actions from travis-ci ([26f2471](https://github.com/sibiraj-s/angularjs-toast/commit/26f2471))
+- update LICENSE ([a800092](https://github.com/sibiraj-s/angularjs-toast/commit/a800092))
+
+#### Dependency Updates
+
+- bump devDependencies ([9e66b66](https://github.com/sibiraj-s/angularjs-toast/commit/9e66b66)), ([595961b](https://github.com/sibiraj-s/angularjs-toast/commit/595961b))
+- update cdn dependencies ([2e1eb14](https://github.com/sibiraj-s/angularjs-toast/commit/2e1eb14))
 
 ## v2.0.3 (2018-12-30)
 

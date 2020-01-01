@@ -18,7 +18,7 @@ $toastProvider = ->
   options = defaultOptions
 
   configure: (c) ->
-    options = Object.assign {}, defaultOptions, c
+    options = angular.extend {}, defaultOptions, c
     return
 
   $get: ->

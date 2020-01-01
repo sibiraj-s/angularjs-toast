@@ -64,9 +64,12 @@ $toastFactory = ($rootScope, $http, $templateCache, $compile, $timeout, $toast) 
 
   timeoutPromises = {}
 
+  getToastEl = ->
+    document.querySelector('.angularjs-toast')
+
   cleanupToastContainer = ->
     if scope.$toastMessages.length is 0
-      angular.element(document.querySelector('.angularjs-toast')).remove()
+      angular.element(getToastEl()).remove()
 
   # toast function
   toast = (args) ->
@@ -83,7 +86,7 @@ $toastFactory = ($rootScope, $http, $templateCache, $compile, $timeout, $toast) 
 
     # check if templates are present in the body
     # append to body
-    htmlTemplate = angular.element(document.getElementsByClassName 'angularjs-toast')
+    htmlTemplate = angular.element getToastEl()
 
     if not htmlTemplate[0]
       # if the element is not appened to html

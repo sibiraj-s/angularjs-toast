@@ -8,7 +8,7 @@ $toastProvider = ->
     maxToast: 7
     position: 'right'
     containerClass: ''
-    toastClass: 'alert-success'
+    defaultToastClass: 'alert-success'
     insertFromTop: true
 
   options = defaultOptions
@@ -25,7 +25,7 @@ $toastFactory = ($rootScope, $http, $templateCache, $compile, $timeout, $toast) 
   templateBase = './angularjs-toast.html'
 
   html = '<div class="angularjs-toast" ng-class="$toastPlace ? \'position-fixed\' : \'position-relative\'">' +
-  '  <ul class="toast-container" ng-class="[$position, $containerClass]">' +
+  '  <ul class="toast-container" ng-class="::[$position, $containerClass]">' +
   '    <li class="animate-repeat" ng-repeat="data in $toastMessages track by data.id">' +
   '      <div class="alert alert-dismissible" ng-class="::$toastClass">'  +
   '        <span ng-bind-html="data.message"></span>' +
@@ -53,6 +53,7 @@ $toastFactory = ($rootScope, $http, $templateCache, $compile, $timeout, $toast) 
   # scope defaults
   scope = $rootScope.$new()
   scope.$toastMessages = []
+  scope.$containerClass = options.containerClass
 
   timeoutPromises = {}
 
@@ -68,14 +69,12 @@ $toastFactory = ($rootScope, $http, $templateCache, $compile, $timeout, $toast) 
 
     # user parameters
     args.duration = args.duration or options.duration
-    args.container = args.container or options.container
     args.dismissible = if args.dismissible isnt undefined then args.dismissible else options.dismissible
 
     # values that bind to HTML
     scope.$position = args.position or options.position
-    scope.$toastPlace = if args.container is options.container then true else false
-    scope.$containerClass = args.containerClass or options.containerClass
-    scope.$toastClass = args.className or options.toastClass
+    scope.$toastPlace = if options.container is 'body' then true else false
+    scope.$toastClass = args.className or options.defaultToastClass
 
     # check if templates are present in the body
     # append to body
@@ -84,7 +83,7 @@ $toastFactory = ($rootScope, $http, $templateCache, $compile, $timeout, $toast) 
     if not htmlTemplate[0]
       # if the element is not appened to html
       # get default template from ->templateBase
-      # append to ->args.container
+      # append to ->options.container
       $http.get templateBase, {cache: $templateCache}
         .then (response) ->
 
@@ -92,10 +91,10 @@ $toastFactory = ($rootScope, $http, $templateCache, $compile, $timeout, $toast) 
           # append default template to the ->templateBase
           templateElement = $compile(response.data)(scope)
 
-          if angular.isElement args.container
-            el = args.container
+          if angular.isElement options.container
+            el = options.container
           else
-            el = document.querySelector(args.container)
+            el = document.querySelector(options.container)
 
           angular.element(el).append templateElement
           return

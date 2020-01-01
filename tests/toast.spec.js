@@ -100,54 +100,11 @@ describe('angularjs-toast', () => {
     expect(toastContainerEl.className).toContain('left');
   });
 
-  it('should append to the given container', () => {
-    const container = document.createElement('div');
-    container.id = '__toast_container__';
-    document.body.appendChild(container);
-
-    toast({
-      duration: 1000,
-      message: 'Hi there!',
-      container: '#__toast_container__',
-    });
-
-    $rootScope.$digest();
-
-    expect(container.querySelector('.angularjs-toast')).toBeTruthy();
-    document.body.removeChild(container);
-
-    const container2 = document.createElement('div');
-
-    toast({
-      duration: 1000,
-      message: 'Hi there!',
-      container: container2,
-    });
-
-    $rootScope.$digest();
-
-    expect(container2.querySelector('.angularjs-toast')).toBeTruthy();
-  });
-
-  it('should add class name to the container', () => {
-    toast({
-      duration: 1000,
-      message: 'Hi there!',
-      containerClass: 'toast-wrapper',
-    });
-
-    $rootScope.$digest();
-
-    const toastContainerEl = document.querySelector('.toast-container');
-    expect(toastContainerEl.className).toContain('toast-wrapper');
-  });
-
   it('should render with the given message', () => {
     const message = 'Hello World!';
     toast({
       duration: 1000,
       message,
-      containerClass: 'toast-wrapper',
     });
 
     $rootScope.$digest();

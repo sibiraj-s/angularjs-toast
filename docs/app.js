@@ -1,6 +1,8 @@
 const config = ($toastProvider) => {
   $toastProvider.configure({
     maxToast: 4,
+    containerClass: 'toast-wrapper',
+    container: '#appendAlert',
   });
 };
 
@@ -18,13 +20,10 @@ const mainController = ($scope, toast) => {
 
   $scope.toast = (cls) => {
     toast({
-      containerClass: 'toast-wrapper',
       className: cls,
       duration: 5 * 1000,
       message: random(),
       position: 'left',
-      container: '#appendAlert',
-      insertFromTop: true,
     });
 
     $scope.dismiss = true;

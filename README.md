@@ -80,17 +80,45 @@ angular.controller('toastController', [
 
 all options are type sensitive
 
-| Property       | Type                  | Default       | Description                                                                                         |
-| -------------- | --------------------- | ------------- | --------------------------------------------------------------------------------------------------- |
-| className      | string                | alert-success | accepted values are alert-(success/danger/primary/info)                                       |
-| duration       | number                | 5000          | timeout for each toast messages to disappear                                                        |
-| position       | string                | right         | position of the element can be 'left', 'center' and 'right'                                         |
-| container      | string                | body          | appends alert to the specific class or id or element. inputs should be like '.class' or '#id'       |
-| containerClass | string                | "             | adds class to the container for more flexibility in styling                                         |
-| message        | html-string or string | Hi there!     | can be HTML or plain string                                                                         |
-| dismissible    | boolean               | true          | show / hide the close icon. if set to false the toast will hide on timeout                          |
-| maxToast       | number                | 7             | maximum number of toast messages to show. if max reached the element inserted first will be removed |
-| insertFromTop  | boolean               | false         | setting true will insert new messages on top else inserts at bottom                                 |
+| Property    | Type                  | Default       | Description                                             |
+| ----------- | --------------------- | ------------- | ------------------------------------------------------- |
+| className   | string                | alert-success | accepted values are alert-(success/danger/primary/info) |
+| duration    | number                | 5000          | timeout for each toast messages to disappear            |
+| message     | html-string or string | Hi there!     | can be HTML or plain string                             |
+| dismissible | boolean               | true          | show / hide the close icon.                             |
+
+### Configure globally
+
+all options are type sensitive
+
+| Property          | Type    | Default | Description                                                                                         |
+| ----------------- | ------- | ------- | --------------------------------------------------------------------------------------------------- |
+| maxToast          | number  | 7       | maximum number of toast messages to show. if max reached the element inserted first will be removed |
+| duration          | number  | 5000    | timeout for each toast messages to disappear                                                        |
+| container         | string  | body    | appends alert to the specific class or id or element. inputs should be like '.class' or '#id'       |
+| containerClass    | string  | "       | adds class to the container for more flexibility in styling                                         |
+| defaultToastClass | string  | "       | adds class to the container for more flexibility in styling                                         |
+| dismissible       | boolean | true    | show / hide the close icon.                                                                         |
+| insertFromTop     | boolean | false   | setting true will insert new messages on top else inserts at bottom                                 |
+| position          | string  | right   | position of the element can be 'left', 'center' and 'right'                                         |
+
+```js
+const config = $toastProvider => {
+  $toastProvider.configure({
+    maxToast: 4,
+    duration: 5 * 1000,
+    container: 'body',
+    containerClass: 'toast-wrapper',
+    defaultToastClass: 'alert-success',
+    dismissible: true,
+    insertFromTop: true,
+    position: 'right'
+  });
+};
+
+config.$inject = ['$toastProvider'];
+app.config(config);
+```
 
 [nganimate]: https://docs.angularjs.org/api/ngAnimate
 [ngsanitize]: https://docs.angularjs.org/api/ngSanitize

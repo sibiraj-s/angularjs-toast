@@ -3,12 +3,12 @@
 $toastProvider = ->
   defaultOptions =
     container: 'body'
+    defaultToastClass: 'alert-success'
     duration: 5 * 1000
     dismissible: true
     maxToast: 7
     position: 'right'
     containerClass: ''
-    defaultToastClass: 'alert-success'
     insertFromTop: true
 
   options = defaultOptions
@@ -24,7 +24,7 @@ $toastFactory = ($rootScope, $http, $templateCache, $compile, $timeout, $toast) 
   # template
   templateBase = './angularjs-toast.html'
 
-  html = '<div class="angularjs-toast" ng-class="$toastPlace ? \'position-fixed\' : \'position-relative\'">' +
+  html = '<div class="angularjs-toast" ng-class="::$toastPlace ? \'position-fixed\' : \'position-relative\'">' +
   '  <ul class="toast-container" ng-class="::[$position, $containerClass]">' +
   '    <li class="animate-repeat" ng-repeat="data in $toastMessages track by data.id">' +
   '      <div class="alert alert-dismissible" ng-class="::$toastClass">'  +
@@ -54,6 +54,8 @@ $toastFactory = ($rootScope, $http, $templateCache, $compile, $timeout, $toast) 
   scope = $rootScope.$new()
   scope.$toastMessages = []
   scope.$containerClass = options.containerClass
+  scope.$position = options.position
+  scope.$toastPlace = if options.container is 'body' then true else false
 
   timeoutPromises = {}
 
@@ -72,8 +74,6 @@ $toastFactory = ($rootScope, $http, $templateCache, $compile, $timeout, $toast) 
     args.dismissible = if args.dismissible isnt undefined then args.dismissible else options.dismissible
 
     # values that bind to HTML
-    scope.$position = args.position or options.position
-    scope.$toastPlace = if options.container is 'body' then true else false
     scope.$toastClass = args.className or options.defaultToastClass
 
     # check if templates are present in the body

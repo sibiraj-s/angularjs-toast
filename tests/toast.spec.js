@@ -25,11 +25,7 @@ describe('angularjs-toast', () => {
   });
 
   it('should create toast notification', () => {
-    toast({
-      duration: 1 * 1000,
-      message: 'Hi there!',
-      className: 'alert-success',
-    });
+    toast({ message: 'Hi there!' });
 
     $rootScope.$digest();
 
@@ -43,11 +39,7 @@ describe('angularjs-toast', () => {
   });
 
   it('should create toast notification with given classname', () => {
-    toast({
-      duration: 1 * 1000,
-      message: 'Hi there!',
-      className: 'alert-success',
-    });
+    toast({ message: 'Hi there!', className: 'alert-success' });
 
     $rootScope.$digest();
 
@@ -57,10 +49,7 @@ describe('angularjs-toast', () => {
 
   it('should remove after given duration', () => {
     const duration = 5 * 1000;
-    toast({
-      duration,
-      message: 'Hi there!',
-    });
+    toast({ duration, message: 'Hi there!' });
 
     $rootScope.$digest();
 
@@ -72,40 +61,9 @@ describe('angularjs-toast', () => {
     expect(toastEl.textContent).not.toContain('Hi there!');
   });
 
-  it('should set the position property correctly', () => {
-    let toastContainerEl;
-
-    toast({
-      duration: 1000,
-      message: 'Hi there!',
-      position: 'right',
-    });
-
-    $rootScope.$digest();
-
-    toastContainerEl = document.querySelector('.toast-container');
-    expect(toastContainerEl.className).toContain('right');
-
-    $timeout.flush();
-
-    toast({
-      duration: 1000,
-      message: 'Hi there!',
-      position: 'left',
-    });
-
-    $rootScope.$digest();
-
-    toastContainerEl = document.querySelector('.toast-container');
-    expect(toastContainerEl.className).toContain('left');
-  });
-
   it('should render with the given message', () => {
     const message = 'Hello World!';
-    toast({
-      duration: 1000,
-      message,
-    });
+    toast({ message });
 
     $rootScope.$digest();
 
@@ -115,17 +73,11 @@ describe('angularjs-toast', () => {
 
   it('should render muliple toast messages', () => {
     const message = 'Hello World!';
-    toast({
-      duration: 1000,
-      message,
-    });
+    toast({ message });
 
     $rootScope.$digest();
 
-    toast({
-      duration: 1000,
-      message,
-    });
+    toast({ message });
 
     $rootScope.$digest();
 
@@ -135,11 +87,7 @@ describe('angularjs-toast', () => {
 
   it('should not have close button when dismissable is set to false', () => {
     const message = 'Hello World!';
-    toast({
-      duration: 1000,
-      message,
-      dismissible: false,
-    });
+    toast({ message, dismissible: false });
 
     $rootScope.$digest();
 

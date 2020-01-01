@@ -9,6 +9,7 @@ $toastProvider = ->
     position: 'right'
     containerClass: ''
     toastClass: 'alert-success'
+    insertFromTop: true
 
   options = defaultOptions
 
@@ -67,7 +68,6 @@ $toastFactory = ($rootScope, $http, $templateCache, $compile, $timeout, $toast) 
 
     # user parameters
     args.duration = args.duration or options.duration
-    args.insertFromTop = args.insertFromTop or false
     args.container = args.container or options.container
     args.dismissible = if args.dismissible isnt undefined then args.dismissible else options.dismissible
 
@@ -121,7 +121,7 @@ $toastFactory = ($rootScope, $http, $templateCache, $compile, $timeout, $toast) 
 
     # push elements to array
     pushToArray = ->
-      if args.insertFromTop then scope.$toastMessages.unshift(json) else scope.$toastMessages.push(json)
+      if options.insertFromTop then scope.$toastMessages.unshift(json) else scope.$toastMessages.push(json)
       timeout(json)
       return
 
@@ -136,7 +136,7 @@ $toastFactory = ($rootScope, $http, $templateCache, $compile, $timeout, $toast) 
 
     # remove last/ first element from ->scope.$toastMessages when the maxlength is reached
     if scope.$toastMessages.length is options.maxToast
-      if not args.insertFromTop then scope.$toastMessages.shift() else scope.$toastMessages.pop()
+      if not options.insertFromTop then scope.$toastMessages.shift() else scope.$toastMessages.pop()
       pushToArray()
     else
       pushToArray()

@@ -3,6 +3,7 @@ const config = ($toastProvider) => {
     maxToast: 4,
     containerClass: 'toast-wrapper',
     container: '#appendAlert',
+    position: 'left',
   });
 };
 
@@ -24,7 +25,6 @@ const mainController = ($scope, toast) => {
       className: cls,
       duration: 5 * 1000,
       message: random(),
-      position: 'left',
     });
 
     $scope.dismiss = true;

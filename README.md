@@ -58,21 +58,18 @@ Import the modules required for angularjs-toast. It is necessary to include [ngS
 add `angularjsToast` dependency to the module
 
 ```js
-angular.module('myApp', ['angularjsToast']);
+const app = angular.module('myApp', ['angularjsToast']);
 ```
 
 and in your controller
 
 ```js
-angular.controller('toastController', [
-  'toast',
-  function(toast) {
-    toast({
-      timeout: 5 * 1000,
-      message: 'Hi there!'
-    });
-  }
-]);
+const toastController = toast => {
+  toast('Hello World!');
+};
+
+toastController.$inject = ['toast'];
+app.controller('toastController', toastController);
 ```
 
 ### Options

@@ -74,13 +74,14 @@ $toastFactory = ($rootScope, $http, $templateCache, $compile, $timeout, $toast) 
   # toast function
   toast = (args) ->
 
-    if not args.message
-      throw new Error "Toast message is required..."
-
     # user options
+    message = if typeof args is 'string' then args else args.message
     timeout = args.timeout or options.timeout
     dismissible = if args.dismissible isnt undefined then args.dismissible else options.dismissible
     toastClass = args.className or options.defaultToastClass
+
+    if not message
+      throw new Error "Toast message is required..."
 
     # values that bind to HTML
 
@@ -122,7 +123,7 @@ $toastFactory = ($rootScope, $http, $templateCache, $compile, $timeout, $toast) 
     # append inputs to json variable
     # this will be pushed to the ->scope.$toastMessages array
     json =
-      message: args.message
+      message: message
       id: getUniqId()
       toastClass: toastClass
       dismissible: dismissible

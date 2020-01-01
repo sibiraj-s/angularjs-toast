@@ -92,16 +92,16 @@
         to the module
       </p>
       <pre><code class="javascript">
-  angular.module('myApp', ['angularjsToast'])
+  const app = angular.module('myApp', ['angularjsToast'])
       </code></pre>
       <p>in your controller</p>
       <pre><code class="javascript">
-  angular.controller('toastController', ['toast', function(toast){
-    toast({
-      timeout  : 5 * 1000,
-      message   : "Hi there!"
-    });
-  }]);
+  const toastController = toast => {
+    toast('Hello World!');
+  };
+  
+  toastController.$inject = ['toast'];
+  app.controller('toastController', toastController);
       </code></pre>
       <hr />
     </div>

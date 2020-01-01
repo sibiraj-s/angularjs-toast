@@ -83,10 +83,18 @@ describe('angularjs-toast', () => {
   it('should not have close button when dismissable is set to false', () => {
     const message = 'Hello World!';
     toast({ message, dismissible: false });
-
     $rootScope.$digest();
 
     const notificationEl = document.querySelector('.angularjs-toast');
     expect(notificationEl.querySelector('.close')).toBeFalsy();
+  });
+
+  it('should create toast message when argument is a string', () => {
+    toast('Hello World!');
+    $rootScope.$digest();
+
+    expect(document.querySelector('.angularjs-toast')).toBeTruthy();
+    expect(document.querySelector('.angularjs-toast').textContent).toContain('Hello World!');
+    expect(document.querySelector('.alert-success')).toBeTruthy();
   });
 });

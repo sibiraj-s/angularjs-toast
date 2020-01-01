@@ -62,14 +62,34 @@ $toastFactory = ($rootScope, $http, $templateCache, $compile, $timeout, $toast) 
   scope.$containerClass = options.containerClass
   scope.$toastMessages = []
 
-  timeoutPromises = {}
-
   getToastEl = ->
     document.querySelector('.angularjs-toast')
 
   cleanupToastContainer = ->
     if scope.$toastMessages.length is 0
       angular.element(getToastEl()).remove()
+
+  timeoutPromises = {}
+  # remove element besed on time interval ->timeout
+  setNotificationTimer = (msgObj, timeout) ->
+    timeoutPromises[msgObj.id] = $timeout ->
+      index = scope.$toastMessages.indexOf(msgObj)
+      if index isnt -1
+        scope.$toastMessages.splice(index, 1)
+
+      cleanupToastContainer()
+      return
+    , timeout
+    return
+
+  # close selected element
+  # remove ->$index element from ->scope.toastMessages
+  scope.$close = (index, id) ->
+    $timeout.cancel timeoutPromises[id]
+    delete timeoutPromises[id]
+    scope.$toastMessages.splice(index, 1)
+    cleanupToastContainer()
+    return
 
   # toast function
   toast = (args) ->
@@ -108,18 +128,6 @@ $toastFactory = ($rootScope, $http, $templateCache, $compile, $timeout, $toast) 
           angular.element(el).append templateElement
           return
 
-    # remove element besed on time interval ->timeout
-    setNotificationTimer = (msgObj) ->
-      timeoutPromises[msgObj.id] = $timeout ->
-        index = scope.$toastMessages.indexOf(msgObj)
-        if index isnt -1
-          scope.$toastMessages.splice(index, 1)
-
-        cleanupToastContainer()
-        return
-      , timeout
-      return
-
     # append inputs to json variable
     # this will be pushed to the ->scope.$toastMessages array
     json =
@@ -128,28 +136,13 @@ $toastFactory = ($rootScope, $http, $templateCache, $compile, $timeout, $toast) 
       toastClass: toastClass
       dismissible: dismissible
 
-    # push elements to array
-    pushToArray = ->
-      if options.insertFromTop then scope.$toastMessages.unshift(json) else scope.$toastMessages.push(json)
-      setNotificationTimer(json)
-      return
-
-    # close selected element
-    # remove ->$index element from ->scope.toastMessages
-    scope.$close = (index, id) ->
-      $timeout.cancel timeoutPromises[id]
-      delete timeoutPromises[id]
-      scope.$toastMessages.splice(index, 1)
-      cleanupToastContainer()
-      return
-
     # remove last/ first element from ->scope.$toastMessages when the maxlength is reached
     if scope.$toastMessages.length is options.maxToast
       if not options.insertFromTop then scope.$toastMessages.shift() else scope.$toastMessages.pop()
-      pushToArray()
-    else
-      pushToArray()
 
+    # push elements to array
+    if options.insertFromTop then scope.$toastMessages.unshift(json) else scope.$toastMessages.push(json)
+    setNotificationTimer(json, timeout)
     return
 
 $toastFactory.$inject = ['$rootScope', '$http', '$templateCache', '$compile', '$timeout', '$toast']

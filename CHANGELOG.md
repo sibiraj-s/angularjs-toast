@@ -13,6 +13,27 @@ All notable changes to this project will be documented in this file.
 > - Documentation
 > - Internal
 
+## v4.0.0 (2020-01-02)
+
+#### Breaking Changes
+
+- rename `$toastProvider` to `toastProvider` ([137be4f](https://github.com/sibiraj-s/angularjs-toast/commit/137be4f))
+
+Add `toast` directive to ur HTML
+
+```html
+<toast></toast>
+```
+
+Before
+
+```js
+// before
+toast('Hello World!');
+// now
+toast.create('Hello World!');
+```
+
 ## v3.0.1 (2020-01-02)
 
 #### Enhancements

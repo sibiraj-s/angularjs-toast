@@ -72,7 +72,10 @@ body .contain table tr td:nth-child(5) {
   font-size: 12px;
 }
 
-.angularjs-toast ul.toast-container.left {
+#appendAlert .angularjs-toast {
+  position: relative;
+}
+#appendAlert .angularjs-toast ul.toast-container.left {
   margin-left: 0;
 }
 

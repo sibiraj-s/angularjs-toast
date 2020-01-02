@@ -1,7 +1,8 @@
 angular.module('app', ['angularjsToast']);
 
 describe('angularjs-toast', () => {
-  let $rootScope;
+  let $compile;
+  let $scope;
   let $timeout;
   let $verifyNoPendingTasks;
 
@@ -10,10 +11,13 @@ describe('angularjs-toast', () => {
   beforeEach(module('app'));
 
   beforeEach(inject(($injector) => {
-    $rootScope = $injector.get('$rootScope');
+    const $rootScope = $injector.get('$rootScope');
+
+    $compile = $injector.get('$compile');
     $timeout = $injector.get('$timeout');
     $verifyNoPendingTasks = $injector.get('$verifyNoPendingTasks');
 
+    $scope = $rootScope.$new();
     toast = $injector.get('toast');
   }));
 
@@ -24,82 +28,88 @@ describe('angularjs-toast', () => {
     } catch {
       $timeout.flush();
     }
-
-    // reset template
-    document.body.innerHTML = '';
   });
 
   it('should create toast notification', () => {
-    toast({ message: 'Hi there!' });
-    $rootScope.$digest();
+    const template = '<toast></toast>';
+    const element = $compile(template)($scope);
+    toast.create('Hi there!');
+    $scope.$digest();
 
-    const toastEl = document.querySelector('.angularjs-toast');
-    expect(toastEl.textContent).toContain('Hi there!');
-    expect(toastEl.querySelector('.close')).toBeTruthy();
+    expect(element.text()).toContain('Hi there!');
 
     $timeout.flush();
 
-    expect(toastEl.textContent).not.toContain('Hi there!');
+    expect(element.text()).not.toContain('Hi there!');
   });
 
   it('should create toast notification with given classname', () => {
-    toast({ message: 'Hi there!', className: 'alert-danger' });
-    $rootScope.$digest();
+    const template = '<toast></toast>';
+    const element = $compile(template)($scope);
+    toast.create({ message: 'Hi there!', className: 'alert-danger' });
+    $scope.$digest();
 
-    const toastEl = document.querySelector('.angularjs-toast');
-    expect(toastEl.querySelector('.alert-danger')).toBeTruthy();
+    expect(element.find('.alert-danger').length).toBe(1);
   });
 
   it('should remove notification after given timeout', () => {
-    const timeout = 5 * 1000;
-    toast({ timeout, message: 'Hi there!' });
-    $rootScope.$digest();
+    const template = '<toast></toast>';
+    const element = $compile(template)($scope);
 
-    const toastEl = document.querySelector('.angularjs-toast');
-    expect(toastEl.textContent).toContain('Hi there!');
+    const timeout = 18 * 1000;
+    toast.create({ timeout, message: 'Hi there!' });
+    $scope.$digest();
 
-    $timeout.flush(3 * 1000);
-    expect(toastEl.textContent).toContain('Hi there!');
+    expect(element.text()).toContain('Hi there!');
 
-    $timeout.flush();
-    expect(toastEl.textContent).not.toContain('Hi there!');
+    $timeout.flush(timeout / 2);
+    expect(element.text()).toContain('Hi there!');
+
+    $timeout.flush(timeout);
+    expect(element.text()).not.toContain('Hi there!');
   });
 
   it('should render with the given message', () => {
     const message = 'Hello World!';
-    toast({ message });
-    $rootScope.$digest();
+    const template = '<toast></toast>';
+    const element = $compile(template)($scope);
+    toast.create(message);
+    $scope.$digest();
 
-    const toastContainerEl = document.querySelector('.toast-container');
-    expect(toastContainerEl.textContent).toContain(message);
+    expect(element.text()).toContain(message);
   });
 
   it('should render muliple toast messages', () => {
     const message = 'Hello World!';
-    toast({ message });
-    $rootScope.$digest();
-    toast({ message });
-    $rootScope.$digest();
+    const template = '<toast></toast>';
+    const element = $compile(template)($scope);
+    toast.create(message);
+    $scope.$digest();
+    toast.create(message);
+    $scope.$digest();
 
-    const notificationEl = document.querySelectorAll('.angularjs-toast>ul>li');
+    const notificationEl = element.find('li');
     expect(notificationEl.length).toBe(2);
   });
 
   it('should not have close button when dismissable is set to false', () => {
     const message = 'Hello World!';
-    toast({ message, dismissible: false });
-    $rootScope.$digest();
+    const template = '<toast></toast>';
+    const element = $compile(template)($scope);
+    toast.create({ message, dismissible: false });
+    $scope.$digest();
 
-    const notificationEl = document.querySelector('.angularjs-toast');
-    expect(notificationEl.querySelector('.close')).toBeFalsy();
+    expect(element.find('.close').length).toBe(0);
   });
 
-  it('should create toast message when argument is a string', () => {
-    toast('Hello World!');
-    $rootScope.$digest();
+  it('should render HTML', () => {
+    const message = 'Angularjs <b>toast</b>';
+    const template = '<toast></toast>';
+    const element = $compile(template)($scope);
+    toast.create(message);
+    $scope.$digest();
 
-    expect(document.querySelector('.angularjs-toast')).toBeTruthy();
-    expect(document.querySelector('.angularjs-toast').textContent).toContain('Hello World!');
-    expect(document.querySelector('.alert-success')).toBeTruthy();
+    expect(element.find('b').length).toBe(1);
+    expect(element.find('b').text()).toBe('toast');
   });
 });

@@ -93,9 +93,13 @@ body {
   }
 }
 
-.angularjs-toast {
-  ul.toast-container.left {
-    margin-left: 0;
+#appendAlert {
+  .angularjs-toast {
+    position: relative;
+
+    ul.toast-container.left {
+      margin-left: 0;
+    }
   }
 }
 

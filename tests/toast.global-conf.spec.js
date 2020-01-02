@@ -1,13 +1,12 @@
-const app = angular.module('appGlobal', ['ngAnimate', 'ngSanitize', 'angularjsToast']);
+const app = angular.module('appGlobal', ['angularjsToast']);
 
 const maxToast = 4;
 const defaultTimeout = 5 * 1000;
 
-const config = ($toastProvider) => {
-  $toastProvider.configure({
+const config = (toastProvider) => {
+  toastProvider.configure({
     maxToast,
     timeout: defaultTimeout,
-    container: 'body',
     containerClass: 'toast-wrapper',
     defaultToastClass: 'alert-success',
     dismissible: true,
@@ -16,11 +15,12 @@ const config = ($toastProvider) => {
   });
 };
 
-config.$inject = ['$toastProvider'];
+config.$inject = ['toastProvider'];
 app.config(config);
 
 describe('angularjs-toast', () => {
-  let $rootScope;
+  let $scope;
+  let $compile;
   let toast;
   let $timeout;
   let $verifyNoPendingTasks;
@@ -28,9 +28,11 @@ describe('angularjs-toast', () => {
   beforeEach(module('appGlobal'));
 
   beforeEach(inject(($injector) => {
-    $rootScope = $injector.get('$rootScope');
+    const $rootScope = $injector.get('$rootScope');
     $timeout = $injector.get('$timeout');
+    $compile = $injector.get('$compile');
     $verifyNoPendingTasks = $injector.get('$verifyNoPendingTasks');
+    $scope = $rootScope.$new();
 
     toast = $injector.get('toast');
   }));
@@ -42,103 +44,107 @@ describe('angularjs-toast', () => {
     } catch {
       $timeout.flush();
     }
-
-    // reset template
-    document.body.innerHTML = '';
   });
 
   it(`should have only maximum ${maxToast} toasts`, () => {
-    toast({ message: 'Hi there!' });
-    $rootScope.$digest();
-    toast({ message: 'Hi there!' });
-    $rootScope.$digest();
-    toast({ message: 'Hi there!' });
-    $rootScope.$digest();
-    toast({ message: 'Hi there!' });
-    $rootScope.$digest();
-    toast({ message: 'Hi there!' });
-    $rootScope.$digest();
-    toast({ message: 'Hi there!' });
-    $rootScope.$digest();
+    const template = '<toast></toast>';
+    const element = $compile(template)($scope);
 
-    const notificationsEl = document.querySelectorAll('.angularjs-toast>ul>li');
-    expect(notificationsEl.length).toBe(4);
+    toast.create({ message: 'Hi there!' });
+    $scope.$digest();
+    toast.create({ message: 'Hi there!' });
+    $scope.$digest();
+    toast.create({ message: 'Hi there!' });
+    $scope.$digest();
+    toast.create({ message: 'Hi there!' });
+    $scope.$digest();
+    toast.create({ message: 'Hi there!' });
+    $scope.$digest();
+    toast.create({ message: 'Hi there!' });
+    $scope.$digest();
+
+    expect(element.find('li').length).toBe(4);
   });
 
   it(`should remove after ${defaultTimeout} seconds`, () => {
-    toast({ message: 'Hi there!' });
-    $rootScope.$digest();
+    const template = '<toast></toast>';
+    const element = $compile(template)($scope);
+    toast.create('Hi there!');
+    $scope.$digest();
+
     $timeout.flush(defaultTimeout);
 
-    const notificationEl = document.querySelectorAll('.angularjs-toast>ul>li');
-    expect(notificationEl.length).toBe(0);
-  });
-
-  it('should append to document body', () => {
-    toast({ message: 'Hi there!' });
-    $rootScope.$digest();
-
-    const toastEl = document.body.querySelector('.angularjs-toast');
-    expect(toastEl).toBeTruthy();
+    expect(element.find('li').length).toBe(0);
   });
 
   it('should add containerClass to the container', () => {
-    toast({ message: 'Hi there!' });
-    $rootScope.$digest();
+    const template = '<toast></toast>';
+    const element = $compile(template)($scope);
+    toast.create('Hi there!');
+    $scope.$digest();
 
-    const toastContainerEl = document.querySelector('.toast-wrapper');
-    expect(toastContainerEl).toBeTruthy();
+    expect(element.find('.toast-wrapper').length).toBe(1);
   });
 
   it('should have configured toast class', () => {
-    toast({ message: 'Hi there!' });
-    $rootScope.$digest();
+    const template = '<toast></toast>';
+    const element = $compile(template)($scope);
+    toast.create('Hi there!');
+    $scope.$digest();
 
-    const notificationEl = document.querySelector('.alert-success');
-    expect(notificationEl).toBeTruthy();
+    expect(element.find('.alert-success').length).toBe(1);
   });
 
   it('should be dismissible by default', () => {
-    toast({ message: 'Hi there!' });
-    $rootScope.$digest();
+    const template = '<toast></toast>';
+    const element = $compile(template)($scope);
+    toast.create('Hi there!');
+    $scope.$digest();
 
-    const closeEl = document.querySelector('.close');
-    expect(closeEl).toBeTruthy();
-    expect(closeEl.textContent).toBe('×');
+    const closeEl = element.find('li .close');
+    expect(closeEl.length).toBe(1);
+    expect(closeEl.text()).toBe('×');
   });
 
   it('should insert new notifications on top', () => {
-    toast({ message: 'Hi there!' });
-    $rootScope.$digest();
+    const template = '<toast></toast>';
+    const element = $compile(template)($scope);
 
-    toast({ message: 'Hello there!' });
-    $rootScope.$digest();
+    toast.create('Hi there!');
+    $scope.$digest();
 
-    const notificationsEl = document.querySelectorAll('.angularjs-toast>ul>li');
-    expect(notificationsEl[0].textContent).toContain('Hello there!');
+    toast.create('Hello there!');
+    $scope.$digest();
+
+    expect(element.find('li')[0].textContent).toContain('Hello there!');
   });
 
   it('should remove notifications from bottom when max toasts exceeded', () => {
-    toast({ message: 'Hello there!' });
-    $rootScope.$digest();
-    toast({ message: 'Hi there!' });
-    $rootScope.$digest();
-    toast({ message: 'Hi there!' });
-    $rootScope.$digest();
-    toast({ message: 'Hi there!' });
-    $rootScope.$digest();
-    toast({ message: 'Hi there!' });
-    $rootScope.$digest();
+    const template = '<toast></toast>';
+    const element = $compile(template)($scope);
 
-    const notificationsEl = document.querySelectorAll('.angularjs-toast>ul>li');
+    toast.create('Hello there!');
+    $scope.$digest();
+    toast.create('Hi there!');
+    $scope.$digest();
+    toast.create('Hi there!');
+    $scope.$digest();
+    toast.create('Hi there!');
+    $scope.$digest();
+    toast.create('Hi there!');
+    $scope.$digest();
+
+    const notificationsEl = element.find('li');
     expect(notificationsEl[notificationsEl.length - 1].textContent).not.toContain('Hello there!');
   });
 
   it('should have default position', () => {
-    toast({ message: 'Hello there!' });
-    $rootScope.$digest();
+    const template = '<toast></toast>';
+    const element = $compile(template)($scope);
 
-    const toastContainerEl = document.querySelector('.toast-container');
-    expect(toastContainerEl.className).toContain('right');
+    toast.create('Hello there!');
+    $scope.$digest();
+
+    expect(element.find('.toast-container').hasClass('right')).toBe(true);
   });
 });

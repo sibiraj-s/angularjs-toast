@@ -1,8 +1,6 @@
-const config = ($toastProvider) => {
-  $toastProvider.configure({
+const config = (toastProvider) => {
+  toastProvider.configure({
     maxToast: 4,
-    containerClass: 'toast-wrapper',
-    container: '#appendAlert',
     position: 'left',
   });
 };
@@ -10,20 +8,18 @@ const config = ($toastProvider) => {
 const mainController = ($scope, toast) => {
   const array = [
     'Lorem ipsum dolor cadet',
-    'angularjs-toast',
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit,',
-    'another simple toast message',
+    'Yet another simple <b>toast</b> message',
     `Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`,
+     sed do eiusmod <strong>tempor incididunt</strong> ut labore et dolore magna aliqua.`,
   ];
 
   $scope.dismiss = false;
   const random = () => array[Math.floor(Math.random() * array.length)];
 
   $scope.toast = (cls) => {
-    toast({
+    toast.create({
       className: cls,
-      timeout: 5 * 1000,
       message: random(),
     });
 
@@ -31,7 +27,7 @@ const mainController = ($scope, toast) => {
   };
 };
 
-config.$inject = ['$toastProvider'];
+config.$inject = ['toastProvider'];
 mainController.$inject = ['$scope', 'toast'];
 
 const app = angular.module('myApp', ['angularjsToast']);

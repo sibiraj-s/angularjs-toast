@@ -5,17 +5,10 @@
 .angularjs-toast {
   @extend .toast-alert;
 
+  position: fixed;
   z-index: 10000;
   width: 100%;
   top: 0;
-
-  &.position-fixed {
-    position: fixed;
-  }
-
-  &.position-relative {
-    position: relative;
-  }
 
   ul {
     &.toast-container {

@@ -39,6 +39,7 @@
       <button class="btn btn-danger" ng-click="toast('alert-danger')">Danger</button>
       <button class="btn btn-info" ng-click="toast('alert-info')">Info</button>
       <div id="appendAlert">
+        <toast></toast>
         <div class="col-md-11 no-pl" ng-if="!dismiss">
           <br />
           <div class="alert alert-success"><strong>Success!</strong> Indicates a successful or positive action.</div>
@@ -85,7 +86,7 @@
   &lt;script src="angular/angular.min.js"&gt;&lt;/script&gt;
   &lt;script src="angular-sanitize/angular-sanitize.min.js"&gt;&lt;/script&gt;
   &lt;script src="angular-animate/angular-animate.min.js"&gt;&lt;/script&gt;
-  &lt;script src="../angularjs-toast.min.js"&gt;&lt;/script&gt;
+  &lt;script src="angularjs-toast.min.js"&gt;&lt;/script&gt;
       </code></pre>
       <p>
         add the <a href="https://github.com/sibiraj-s/angularjs-toast" target="_blank">angularjsToast</a> dependency
@@ -97,18 +98,21 @@
       <p>in your controller</p>
       <pre><code class="javascript">
   const toastController = toast => {
-    toast('Hello World!');
+    toast.create('Hello World!');
   };
   
   toastController.$inject = ['toast'];
   app.controller('toastController', toastController);
       </code></pre>
-      <hr />
+      <p>in your html</p>
+      <pre><code class="html">
+  &lt;toast&gt;&lt;/toast&gt;
+      </code></pre>
     </div>
   </div>
 
   <!-- dependencies -->
-  <script src="//cdn.jsdelivr.net/npm/angular@1.7.9/angular.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/angular@1.7.9/angular.js"></script>
   <script src="//cdn.jsdelivr.net/npm/angular-sanitize@1.7.9/angular-sanitize.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/angular-animate@1.7.9/angular-animate.min.js"></script>
   <!-- packages -->

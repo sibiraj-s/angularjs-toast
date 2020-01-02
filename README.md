@@ -65,17 +65,23 @@ and in your controller
 
 ```js
 const toastController = toast => {
-  toast('Hello World!');
+  toast.create('Hello World!');
 };
 
 toastController.$inject = ['toast'];
 app.controller('toastController', toastController);
 ```
 
+then in HTML
+
+```html
+<toast></toast>
+```
+
 ### Options
 
 ```js
-toast({
+toast.create({
   timeout: 5 * 1000,
   message: 'Hi there!',
   className: 'alert-success',
@@ -93,11 +99,10 @@ toast({
 ### Configure globally
 
 ```js
-const config = $toastProvider => {
-  $toastProvider.configure({
+const config = toastProvider => {
+  toastProvider.configure({
     maxToast: 4,
     timeout: 5 * 1000,
-    container: 'body',
     containerClass: 'toast-wrapper',
     defaultToastClass: 'alert-success',
     dismissible: true,
@@ -106,7 +111,7 @@ const config = $toastProvider => {
   });
 };
 
-config.$inject = ['$toastProvider'];
+config.$inject = ['toastProvider'];
 app.config(config);
 ```
 
@@ -114,7 +119,6 @@ app.config(config);
 | ----------------- | ------- | ------- | --------------------------------------------------------------------------------------------------- |
 | maxToast          | number  | 7       | maximum number of toast messages to show. if max reached the element inserted first will be removed |
 | timeout           | number  | 5000    | timeout for each toast messages to disappear                                                        |
-| container         | string  | body    | appends alert to the specific class or id or element. inputs should be like '.class' or '#id'       |
 | containerClass    | string  | "       | adds class to the container for more flexibility in styling                                         |
 | defaultToastClass | string  | "       | adds class to the container for more flexibility in styling                                         |
 | dismissible       | boolean | true    | show / hide the close icon.                                                                         |

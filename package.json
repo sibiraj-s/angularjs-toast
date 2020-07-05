@@ -32,18 +32,18 @@
     "toast-notification"
   ],
   "devDependencies": {
-    "@babel/core": "^7.10.2",
-    "@babel/preset-env": "^7.10.2",
+    "@babel/core": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
     "angular": "^1.8.0",
     "angular-animate": "^1.8.0",
     "angular-mocks": "^1.8.0",
     "angular-sanitize": "^1.8.0",
-    "chalk": "^4.0.0",
-    "eslint": "^6.8.0",
-    "eslint-config-airbnb-base": "^14.1.0",
+    "chalk": "^4.1.0",
+    "eslint": "^7.4.0",
+    "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-angular": "^4.0.1",
-    "eslint-plugin-import": "^2.20.2",
-    "grunt": "^1.1.0",
+    "eslint-plugin-import": "^2.22.0",
+    "grunt": "^1.2.0",
     "grunt-babel": "^8.0.0",
     "grunt-browser-sync": "^2.2.0",
     "grunt-coffeelintr": "^1.1.5",
@@ -57,10 +57,10 @@
     "grunt-sass": "^3.1.0",
     "husky": "^4.2.5",
     "jquery": "^3.5.1",
-    "karma": "^5.0.9",
+    "karma": "^5.1.0",
     "karma-chrome-launcher": "^3.1.0",
     "karma-jasmine": "^3.3.1",
     "load-grunt-tasks": "^5.1.0",
-    "sass": "^1.26.8"
+    "sass": "^1.26.9"
   }
 }

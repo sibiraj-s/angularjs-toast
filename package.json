@@ -32,28 +32,28 @@
     "toast-notification"
   ],
   "devDependencies": {
-    "@babel/core": "^7.10.4",
+    "@babel/core": "^7.10.5",
     "@babel/preset-env": "^7.10.4",
     "angular": "^1.8.0",
     "angular-animate": "^1.8.0",
     "angular-mocks": "^1.8.0",
     "angular-sanitize": "^1.8.0",
     "chalk": "^4.1.0",
-    "eslint": "^7.4.0",
+    "eslint": "^7.5.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-config-pegasus": "^1.0.0",
     "eslint-plugin-angular": "^4.0.1",
     "eslint-plugin-import": "^2.22.0",
-    "grunt": "^1.2.0",
+    "grunt": "^1.2.1",
     "grunt-babel": "^8.0.0",
     "grunt-browser-sync": "^2.2.0",
-    "grunt-coffeelintr": "^1.1.5",
+    "grunt-coffeelintr": "^1.1.6",
     "grunt-contrib-clean": "^2.0.0",
     "grunt-contrib-coffee": "^2.1.0",
     "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-cssmin": "^3.0.0",
-    "grunt-contrib-uglify": "^4.0.1",
+    "grunt-contrib-uglify": "^5.0.0",
     "grunt-contrib-watch": "^1.1.0",
     "grunt-sass": "^3.1.0",
     "husky": "^4.2.5",
@@ -62,6 +62,6 @@
     "karma-chrome-launcher": "^3.1.0",
     "karma-jasmine": "^3.3.1",
     "load-grunt-tasks": "^5.1.0",
-    "sass": "^1.26.9"
+    "sass": "^1.26.10"
   }
 }

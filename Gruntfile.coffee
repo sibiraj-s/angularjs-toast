@@ -111,10 +111,10 @@ module.exports = (grunt) ->
           routes:
             '/dist': 'dist'
         rewriteRules: [{
-          match: '//cdn.jsdelivr.net/npm/angularjs-toast@latest/angularjs-toast.min.js',
+          match: 'https://cdn.jsdelivr.net/npm/angularjs-toast@latest/angularjs-toast.min.js',
           replace: '/dist/angularjs-toast.js',
         }, {
-          match: '//cdn.jsdelivr.net/npm/angularjs-toast@latest/angularjs-toast.min.css',
+          match: 'https://cdn.jsdelivr.net/npm/angularjs-toast@latest/angularjs-toast.min.css',
           replace: '/dist/angularjs-toast.css'
         }]
 

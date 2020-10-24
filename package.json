@@ -31,6 +31,11 @@
     "angularjs-toast",
     "toast-notification"
   ],
+  "peerDependencies": {
+    "angular": "^1.6.0",
+    "angular-animate": "^1.6.0",
+    "angular-sanitize": "^1.6.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.12.3",
     "@babel/preset-env": "^7.12.1",

@@ -39,6 +39,8 @@
   "devDependencies": {
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.10",
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
     "angular": "^1.8.2",
     "angular-animate": "^1.8.2",
     "angular-mocks": "^1.8.2",

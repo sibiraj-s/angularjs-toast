@@ -9,7 +9,7 @@
   "bugs": "https://github.com/sibiraj-s/angularjs-toast/issues",
   "homepage": "https://github.com/sibiraj-s/angularjs-toast#readme",
   "engines": {
-    "node": ">=12"
+    "node": ">=14"
   },
   "scripts": {
     "build": "grunt build",
@@ -17,9 +17,6 @@
     "lint:js": "eslint . --ignore-path .gitignore",
     "lint:coffee": "grunt coffeelintr",
     "lint": "npm run lint:coffee && npm run lint:js",
-    "prepublishOnly": "node ./scripts/prepublish.js",
-    "prerelease": "npm run build",
-    "release": "sh ./scripts/release.sh",
     "test:watch": "karma start",
     "test": "karma start --single-run"
   },

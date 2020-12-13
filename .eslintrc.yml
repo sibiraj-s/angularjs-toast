@@ -1,12 +1,17 @@
 extends:
   - pegasus
-  - pegasus/node
 
 plugins:
   - angular
 
-rules:
-  no-console: off
+overrides:
+  - files:
+      - '!docs/*'
+      - '!src/*'
+    extends:
+      - pegasus/node
+    rules:
+      no-console: off
 
 globals:
   angular: true

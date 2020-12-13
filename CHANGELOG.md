@@ -13,6 +13,12 @@ All notable changes to this project will be documented in this file.
 > - Documentation
 > - Internal
 
+## v4.0.1 (2020-12-13)
+
+#### Internal
+
+- update LICENSE ([0f43033](https://github.com/sibiraj-s/angularjs-toast/commit/0f43033))
+
 ## v4.0.0 (2020-01-02)
 
 #### Breaking Changes

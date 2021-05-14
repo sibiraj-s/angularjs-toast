@@ -35,16 +35,16 @@
     "angular-sanitize": "^1.6.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.14.0",
-    "@babel/preset-env": "^7.14.1",
-    "@commitlint/cli": "^12.1.1",
-    "@commitlint/config-conventional": "^12.1.1",
+    "@babel/core": "^7.14.2",
+    "@babel/preset-env": "^7.14.2",
+    "@commitlint/cli": "^12.1.4",
+    "@commitlint/config-conventional": "^12.1.4",
     "angular": "^1.8.2",
     "angular-animate": "^1.8.2",
     "angular-mocks": "^1.8.2",
     "angular-sanitize": "^1.8.2",
     "chalk": "^4.1.1",
-    "eslint": "^7.25.0",
+    "eslint": "^7.26.0",
     "eslint-config-pegasus": "^2.0.2",
     "eslint-plugin-angular": "^4.0.1",
     "grunt": "^1.4.0",
@@ -66,6 +66,6 @@
     "karma-chrome-launcher": "^3.1.0",
     "karma-jasmine": "^4.0.1",
     "load-grunt-tasks": "^5.1.0",
-    "sass": "^1.32.12"
+    "sass": "^1.32.13"
   }
 }

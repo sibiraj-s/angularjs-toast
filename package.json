@@ -9,7 +9,7 @@
   "bugs": "https://github.com/sibiraj-s/angularjs-toast/issues",
   "homepage": "https://github.com/sibiraj-s/angularjs-toast#readme",
   "engines": {
-    "node": ">=14"
+    "node": ">=16"
   },
   "scripts": {
     "build": "grunt build",

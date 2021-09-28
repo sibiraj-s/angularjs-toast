@@ -38,16 +38,16 @@
   "devDependencies": {
     "@babel/core": "^7.15.5",
     "@babel/preset-env": "^7.15.6",
-    "@commitlint/cli": "^13.1.0",
-    "@commitlint/config-conventional": "^13.1.0",
+    "@commitlint/cli": "^13.2.0",
+    "@commitlint/config-conventional": "^13.2.0",
     "angular": "^1.8.2",
     "angular-animate": "^1.8.2",
     "angular-mocks": "^1.8.2",
     "angular-sanitize": "^1.8.2",
     "chalk": "^4.1.2",
     "eslint": "^7.32.0",
-    "eslint-config-pegasus": "^2.1.0",
-    "eslint-plugin-angular": "^4.0.1",
+    "eslint-config-pegasus": "^2.1.1",
+    "eslint-plugin-angular": "^4.1.0",
     "grunt": "^1.4.1",
     "grunt-babel": "^8.0.0",
     "grunt-browser-sync": "^2.2.0",
@@ -67,6 +67,6 @@
     "karma-chrome-launcher": "^3.1.0",
     "karma-jasmine": "^4.0.1",
     "load-grunt-tasks": "^5.1.0",
-    "sass": "^1.39.2"
+    "sass": "^1.42.1"
   }
 }

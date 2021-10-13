@@ -36,9 +36,9 @@
     "angular-sanitize": "^1.6.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.15.5",
-    "@babel/preset-env": "^7.15.6",
-    "@commitlint/cli": "^13.2.0",
+    "@babel/core": "^7.15.8",
+    "@babel/preset-env": "^7.15.8",
+    "@commitlint/cli": "^13.2.1",
     "@commitlint/config-conventional": "^13.2.0",
     "angular": "^1.8.2",
     "angular-animate": "^1.8.2",
@@ -54,7 +54,7 @@
     "grunt-coffeelintr": "^2.0.1",
     "grunt-contrib-clean": "^2.0.0",
     "grunt-contrib-coffee": "^2.1.0",
-    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-concat": "^2.0.0",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-cssmin": "^4.0.0",
     "grunt-contrib-uglify": "^5.0.1",

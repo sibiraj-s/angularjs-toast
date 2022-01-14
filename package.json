@@ -44,7 +44,6 @@
     "angular-animate": "^1.8.2",
     "angular-mocks": "^1.8.2",
     "angular-sanitize": "^1.8.2",
-    "chalk": "^4.1.2",
     "eslint": "^8.6.0",
     "eslint-config-pegasus": "^3.2.0",
     "eslint-plugin-angular": "^4.1.0",

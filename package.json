@@ -50,7 +50,7 @@
     "grunt": "^1.4.1",
     "grunt-babel": "^8.0.0",
     "grunt-browser-sync": "^2.2.0",
-    "grunt-coffeelintr": "^2.0.1",
+    "grunt-coffeelintr": "^2.1.0",
     "grunt-contrib-clean": "^2.0.0",
     "grunt-contrib-coffee": "^2.1.0",
     "grunt-contrib-concat": "^2.0.0",
